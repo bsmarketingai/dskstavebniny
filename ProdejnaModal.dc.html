@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>Vybrat prodejnu</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&amp;display=swap"/><style>body{margin:0}</style></helmet>
+<div id="StoreSelectDialog" class="StoreSelectDialogView bs-view StoreSelectDialog bs-dialog bs-tab-boundary" role="dialog" aria-modal="true" aria-labelledby="ss-title" style="width:100%;background:#fff;border-radius:8px;box-shadow:0 12px 32px rgba(0,36,51,0.18);font-family:'Exo 2', 'Segoe UI', system-ui, sans-serif;color:#1A1E23;padding:clamp(16px,4vw,24px);display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:16px"><h2 id="ss-title" style="margin:0;font:700 28px/34px 'Exo 2', 'Trebuchet MS', sans-serif;color:#005980">Vybrat prodejnu</h2>
+<button type="button" onClick="{{close}}" aria-label="Zavřít" style="width:44px;height:44px;border:0;border-radius:6px;background:transparent;color:#003D57;display:flex;align-items:center;justify-content:center" style-hover="background: #EBF9FF; border-radius: 4px"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" > <path d="M18 6l-12 12"/> <path d="M6 6l12 12"/> </svg></button></div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:16px 20px;border-radius:6px;background:#CCF0FF;color:#002433"><span style="display:flex;align-items:center;gap:12px;font:600 16px/22px 'Exo 2', 'Trebuchet MS', sans-serif"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" > <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/> <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/> </svg>Nejblíž vám: <a href="#" style="color:#007DB2" style-hover="text-decoration: underline">Pardubice – Jesničánky</a> · 4,2 km</span><span style="padding:4px 16px;border-radius:999px;background:#1B7F3B;color:#fff;font:700 14px/20px 'Exo 2', 'Trebuchet MS', sans-serif">Otevřeno</span></div>
+<ul style="margin:0;padding:0;display:flex;flex-direction:column;gap:12px"><sc-for list="{{branches}}" as="b" hint-placeholder-count="9">
+<li style="list-style:none;display:flex;flex-wrap:wrap;gap:16px 24px;padding:clamp(16px,4vw,24px);border-radius:6px;background:{{b.bg}};border:1px solid {{b.bd}}">
+<span style="display:block;width:168px;height:168px;overflow:hidden;border-radius:6px;flex:none"><img src="assets/prodejny.jpg" alt="Prodejna {{b.name}}" style="display:block;width:1512px;height:168px;max-width:none;margin-left:{{b.ml}}"/></span>
+<div style="flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px"><h3 style="margin:0;font:700 22px/28px 'Exo 2', 'Trebuchet MS', sans-serif;color:#005980">{{b.name}}</h3><a href="#" style="display:flex;align-items:center;gap:8px;color:#003D57;text-decoration:none;font:500 15px/20px 'Exo 2', 'Segoe UI', system-ui, sans-serif;flex:none" style-hover="text-decoration: underline">Mapa<span style="display:flex;color:#F59300"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"/> <path d="M11 13l9 -9"/> <path d="M15 4h5v5"/> </svg></span></a></div>
+<span style="font:400 15px/19px 'Exo 2', 'Segoe UI', system-ui, sans-serif;color:#1A1E23">{{b.a1}}</span><sc-if value="{{b.a2}}" hint-placeholder-val="{{true}}"><span style="font:400 15px/19px 'Exo 2', 'Segoe UI', system-ui, sans-serif;color:#1A1E23;margin-top:-6px">{{b.a2}}</span></sc-if>
+<a href="#" style="display:flex;align-items:center;gap:8px;color:#003D57;text-decoration:none;font:700 16px/22px 'Exo 2', 'Trebuchet MS', sans-serif" style-hover="text-decoration: underline"><span style="display:flex;color:#F59300"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" > <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/> </svg></span>{{b.phone}}</a>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-top:auto;padding-top:12px">
+<a href="#" style="display:flex;align-items:center;gap:8px;color:#003D57;text-decoration:none;font:700 15px/20px 'Exo 2', 'Trebuchet MS', sans-serif" style-hover="text-decoration: underline"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" > <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/> <path d="M12 9h.01"/> <path d="M11 12h1v4h1"/> </svg>Info o prodejně</a>
+<sc-if value="{{b.selected}}" hint-placeholder-val="{{false}}"><span class="selected" style="display:flex;align-items:center;gap:8px;height:44px;padding:0 20px;border-radius:6px;background:#E9F8EF;color:#1B7F3B;font:700 15px/20px 'Exo 2', 'Trebuchet MS', sans-serif"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" > <path d="M5 12l5 5l10 -10"/> </svg>Vaše prodejna</span></sc-if>
+<sc-if value="{{b.notSelected}}" hint-placeholder-val="{{true}}"><button type="button" onClick="{{b.pick}}" style="display:flex;align-items:center;gap:8px;height:44px;padding:0 20px;border:0;border-radius:6px;background:#003D57;color:#fff;font:700 15px/20px 'Exo 2', 'Trebuchet MS', sans-serif" style-hover="background: #005980"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" > <path d="M5 12l-2 0l9 -9l9 9l-2 0"/> <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/> <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/> </svg>Nastavit jako svoji prodejnu</button></sc-if>
+</div></div></li></sc-for></ul></div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"onClose":{"editor":null},"$preview":{"width":936,"height":2300}}'>
+class Component extends DCLogic {
+  constructor(p){ super(p); this.state = { sel: 1 }; }
+  renderVals() {
+    const B = [{"name": "Opatovice n. L.", "a1": "Pardubická 59", "a2": "U kostela", "phone": "608 308 415"}, {"name": "Pardubice", "a1": "Konečná 1910", "a2": "Jesničánky", "phone": "608 308 978"}, {"name": "Pardubice", "a1": "Hostovická 231", "a2": "Černá za Bory", "phone": "775 760 903"}, {"name": "Hradec Králové", "a1": "Dvorská 922/1b", "a2": "", "phone": "608 308 865"}, {"name": "Holice", "a1": "Hradecká 1032", "a2": "Na Mušce", "phone": "608 308 469"}, {"name": "Týniště n. Orlicí", "a1": "V. Opatrného 989", "a2": "Za benzínkou", "phone": "608 308 298"}, {"name": "Nové Město n. Metují", "a1": "Žižkovo nám. 123", "a2": "Krčín", "phone": "608 308 302"}, {"name": "Týnec nad Labem", "a1": "Bambousek 123", "a2": "", "phone": "608 308 256"}, {"name": "Mnichovo Hradiště", "a1": "Jiráskova 89", "a2": "U pracáku", "phone": "608 308 238"}];
+    return {
+      close: () => { if (this.props.onClose) this.props.onClose(); },
+      branches: B.map((b, i) => ({ ...b, ml: (-168 * i) + 'px', selected: this.state.sel === i, notSelected: this.state.sel !== i,
+        bg: this.state.sel === i ? '#EBF9FF' : '#F4F5F7', bd: this.state.sel === i ? '#80D9FF' : '#E5E7EB',
+        pick: () => this.setState({ sel: i }) }))
+    };
+  }
+}
+</script>
+</body>
+</html>
