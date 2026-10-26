@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DSK Stavebniny — redesign e-shopu</title>
+<style>
+@font-face{font-family:"Exo 2";src:url(design-system/fonts/Exo2-Variable.ttf) format("truetype");font-weight:100 900;font-style:normal}
+@font-face{font-family:"Exo 2";src:url(design-system/fonts/Exo2-Italic-Variable.ttf) format("truetype");font-weight:100 900;font-style:italic}
+*{box-sizing:border-box}
+body{margin:0;background:#F4F5F7;color:#1A1E23;font:400 16px/24px "Exo 2","Segoe UI",system-ui,sans-serif}
+header.top{background:#009FE3;color:#002433}
+header.top .in,main{max-width:1200px;margin:0 auto;padding:24px 16px}
+header.top h1{margin:0;font:700 32px/38px "Exo 2",sans-serif}
+header.top p{margin:4px 0 0}
+header.top nav{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:12px}
+header.top nav a{color:#002433;font-weight:700}
+h2{font:700 26px/32px "Exo 2",sans-serif;color:#005980;margin:40px 0 12px}
+h3{font:700 19px/24px "Exo 2",sans-serif;color:#005980;margin:0 0 4px}
+h4,h5{color:#003D57;margin:20px 0 8px}
+a{color:#007DB2}
+code{background:#E5E7EB;border-radius:4px;padding:1px 5px;font-size:.9em}
+pre{background:#1A1E23;color:#F4F5F7;border-radius:6px;padding:12px;overflow:auto}
+pre code{background:none;padding:0}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px;line-height:20px;background:#fff}
+th,td{border:1px solid #E5E7EB;padding:6px 10px;text-align:left;vertical-align:top}
+th{background:#EBF9FF}
+.card{background:#fff;border:1px solid #E5E7EB;border-radius:6px;margin:16px 0;overflow:hidden}
+.card .meta{padding:16px 20px;border-bottom:1px solid #E5E7EB}
+.card .meta p{margin:6px 0 0;font-size:14px;line-height:20px;color:#5B646E}
+.card .stage{overflow:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:16px}
+.tile{display:block;background:#fff;border:1px solid #E5E7EB;border-radius:6px;padding:16px 20px;text-decoration:none;color:#1A1E23}
+.tile:hover{border-color:#007DB2}
+.tile strong{display:block;color:#005980;font-size:18px}
+.tile span{font-size:14px;color:#5B646E}
+.doc{background:#fff;border:1px solid #E5E7EB;border-radius:6px;padding:8px 24px 16px;margin:16px 0}
+.sw{display:flex;flex-wrap:wrap;gap:8px}
+.sw div{width:120px;font-size:12px;line-height:16px}
+.sw i{display:block;height:48px;border-radius:4px;border:1px solid #E5E7EB;margin-bottom:4px}
+</style>
+</head>
+<body>
+<header class="top"><div class="in"><h1>DSK Stavebniny — redesign e-shopu</h1>
+<p>Statická HTML verze návrhu a design systému.</p></div></header>
+<main>
+<h2>Stránky</h2>
+<div class="grid"><a class="tile" href="redesign/Main.html"><strong>Homepage · XL</strong><span>redesign/Main.html</span></a><a class="tile" href="redesign/Sortiment.html"><strong>Sortiment (rozcestník e-shopu) · XXL</strong><span>redesign/Sortiment.html</span></a><a class="tile" href="redesign/Kontakty.html"><strong>Kontakty · XL</strong><span>redesign/Kontakty.html</span></a><a class="tile" href="redesign/Poptavka.html"><strong>Rychlá poptávka · XL</strong><span>redesign/Poptavka.html</span></a><a class="tile" href="redesign/Dodavatele.html"><strong>Naši dodavatelé · XL</strong><span>redesign/Dodavatele.html</span></a><a class="tile" href="redesign/Kategorie.html"><strong>Výpis kategorie · XL</strong><span>redesign/Kategorie.html</span></a><a class="tile" href="redesign/Detail.html"><strong>Detail produktu · XXL</strong><span>redesign/Detail.html</span></a></div>
+<h2>Plovoucí vrstvy a mobilní menu</h2>
+<div class="grid"><a class="tile" href="redesign/MegaMenu.html"><strong>Megamenu Sortiment · L–XXL</strong><span>redesign/MegaMenu.html</span></a><a class="tile" href="redesign/KosikPopup.html"><strong>Popup Vložili jste do košíku</strong><span>redesign/KosikPopup.html</span></a><a class="tile" href="redesign/Filtr.html"><strong>Šuplík filtru</strong><span>redesign/Filtr.html</span></a><a class="tile" href="redesign/MobilMenu.html"><strong>Mobilní menu · XXS–M</strong><span>redesign/MobilMenu.html</span></a><a class="tile" href="redesign/KosikMini.html"><strong>Popup Můj košík (hover)</strong><span>redesign/KosikMini.html</span></a><a class="tile" href="redesign/ProdejnaModal.html"><strong>Modal Vybrat prodejnu</strong><span>redesign/ProdejnaModal.html</span></a><a class="tile" href="redesign/Naseptavac.html"><strong>Našeptávač vyhledávání</strong><span>redesign/Naseptavac.html</span></a></div>
+<h2>Design systém</h2>
+<div class="grid"><a class="tile" href="design-system/index.html"><strong>Komponenty, tokeny a pravidla</strong><span>design-system/index.html</span></a>
+<a class="tile" href="design-system/assets/index.html"><strong>Assety</strong><span>logo, ikony, referenční snímky z Figmy</span></a></div>
+</main>
+</body>
+</html>

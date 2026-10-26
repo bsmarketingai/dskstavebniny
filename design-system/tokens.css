@@ -1,0 +1,151 @@
+/* DSK Stavebniny — generated from tokens.json */
+:root, [data-theme="light"] {
+  --main-50: #e9f8ef; /* Ve Figmě ve škále Main, ale zelený odstín — používáme jako podklad úspěchu (doprava zdarma, Otevřeno). Ověřit. */
+  --main-100: #fff4e5; /* Oranžová škála (Main). */
+  --main-200: #ffe2bc; /* Oranžová škála (Main). */
+  --main-300: #ffc97f; /* Oranžová škála (Main). */
+  --main-400: #ffae3d; /* Oranžová škála (Main). */
+  --main-500: #f59300; /* Konverzní barva — základ tokenu conversion. Mimo konverzní cestu se nepoužívá. */
+  --main-600: #d97706; /* Hover / pressed konverzního tlačítka (conversion-hover). */
+  --main-700: #b45b09; /* Oranžový text na bílé (4,7:1), když je potřeba. */
+  --main-800: #8a440a; /* Oranžová škála (Main). */
+  --main-900: #5c2d08; /* Oranžová škála (Main). */
+  --primary-50: #ebf9ff; /* Podklad sekcí (Proč nakupovat). Odkaz na něm primary-700. */
+  --primary-100: #ccf0ff; /* Tint: vybraný řádek menu, čipy filtrů. Text primary-700 (6,4:1). */
+  --primary-200: #b2e8ff; /* Sekundární text na primary-800. */
+  --primary-300: #80d9ff; /* Modrá škála (Primary). */
+  --primary-400: #29bfff; /* Modrá škála (Primary). */
+  --primary-500: #009fe3; /* DSK modrá — velké plochy: hlavní lišta, newsletter, měřítko u nadpisů. Malý text na ní primary-900 (5,4:1); bílý NEprochází (3,0:1), výjimkou je logo. */
+  --primary-600: #007db2; /* Primární tlačítka a odkazy na bílé, bílý text 4,6:1. */
+  --primary-700: #005980; /* Nadpisy a ceny (7,7:1 na bílé). */
+  --primary-800: #003d57; /* Tmavé plochy: kategoriová lišta, patička, tlačítko Hledat, košík. Bílý text 11,6:1, sekundární text primary-200 (8,8:1). */
+  --primary-900: #002433; /* Utility lišta nahoře; text a ikony na primary-500 a main-500. */
+  --secondary-50: #fdf1f1; /* Ve Figmě ve škále Secondary, ale růžový odstín — podklad chybových hlášek. Ověřit. */
+  --secondary-100: #f4f5f7; /* Podklad tlačítka Zpět do obchodu, dlaždic ostatních kategorií, počítadla. */
+  --secondary-200: #e5e7eb; /* Hairline: rámečky karet, polí a oddělovače. */
+  --secondary-300: #cbd1d9; /* Modrošedá škála (Secondary) pro text a UI. */
+  --secondary-400: #a2abb8; /* Modrošedá škála (Secondary) pro text a UI. */
+  --secondary-500: #78838f; /* Modrošedá škála (Secondary) pro text a UI. */
+  --secondary-600: #5b646e; /* Popisky, bez DPH, metadata (6,0:1 na bílé). */
+  --secondary-700: #444c55; /* Modrošedá škála (Secondary) pro text a UI. */
+  --secondary-800: #2e343b; /* Modrošedá škála (Secondary) pro text a UI. */
+  --secondary-900: #1a1e23; /* Základní text (16,8:1). */
+  --neutral-50: #f5f5f5; /* Neutrální šedá škála; v návrhu zatím nepoužitá, rezervovaná pro obrázky a ilustrace. */
+  --neutral-100: #ededed; /* Neutrální šedá škála; v návrhu zatím nepoužitá, rezervovaná pro obrázky a ilustrace. */
+  --neutral-200: #cecece; /* Neutrální šedá škála; v návrhu zatím nepoužitá, rezervovaná pro obrázky a ilustrace. */
+  --neutral-300: #a8a8a8; /* Neutrální šedá škála; v návrhu zatím nepoužitá, rezervovaná pro obrázky a ilustrace. */
+  --neutral-400: #8c8c8c; /* Neutrální šedá škála; v návrhu zatím nepoužitá, rezervovaná pro obrázky a ilustrace. */
+  --neutral-500: #707070; /* Neutrální šedá škála; v návrhu zatím nepoužitá, rezervovaná pro obrázky a ilustrace. */
+  --neutral-600: #656565; /* Neutrální šedá škála; v návrhu zatím nepoužitá, rezervovaná pro obrázky a ilustrace. */
+  --neutral-700: #464646; /* Neutrální šedá škála; v návrhu zatím nepoužitá, rezervovaná pro obrázky a ilustrace. */
+  --neutral-800: #313131; /* Neutrální šedá škála; v návrhu zatím nepoužitá, rezervovaná pro obrázky a ilustrace. */
+  --neutral-900: #292929; /* Neutrální šedá škála; v návrhu zatím nepoužitá, rezervovaná pro obrázky a ilustrace. */
+  --neutral-1000: #1c1c1c; /* Neutrální šedá škála; v návrhu zatím nepoužitá, rezervovaná pro obrázky a ilustrace. */
+  --white: #ffffff; /* Podklad stránky a karet. */
+  --danger: #c8102e; /* Mimo Figma paletu: Výprodej, přeškrtnutá cena, Zrušit filtry, chyby. Bílý text 5,9:1. */
+  --success: #1b7f3b; /* Mimo Figma paletu: Skladem, Otevřeno. Na bílé 5,1:1. */
+  --conversion: var(--main-500); /* Konverzní cesta a nic jiného: Do košíku (karta i detail), Koupit, košík v hlavičce, Přejít k objednávce, Pokračovat / Dokončit objednávku v pokladně. Text a ikony primary-900 (7,0:1), nikdy bílé. Na jedné obrazovce je jedna hlavní konverzní akce, nejvýš opakovaná v kartách. */
+  --conversion-hover: var(--main-600); /* Hover / pressed stav konverzního tlačítka. */
+  --conversion-ink: var(--primary-900); /* Text a ikony na konverzní barvě. */
+  --shadow-pop: 0 12px 32px rgba(0,36,51,0.18); /* Jen plovoucí vrstvy: megamenu, popup košíku, šuplík filtru. Karty stín nemají. */
+}
+:root {
+  --space-0: 0px; /* Žádná mezera; spojené prvky (pole + tlačítko Hledat). */
+  --space-0-5: 2px; /* Mikro: svislé odsazení štítku, odsazení obrysu fokusu. */
+  --space-1: 4px; /* Ikona–text ve štítku, řádky ceny pod sebou. */
+  --space-2: 8px; /* Ikona–text v tlačítku, mezera mezi čipy a tlačítky ve skupině. */
+  --space-3: 12px; /* Vnitřní odsazení malých prvků, mezera mezi dlaždicemi; okraj i gutter na XXS, padding karty XXS–XS. */
+  --space-4: 16px; /* Padding karty od S, padding polí a tlačítek, gutter XS–S, okraj XS. */
+  --space-5: 20px; /* Odsazení panelů (filtr, popup) na mobilu, větší tlačítka. */
+  --space-6: 24px; /* Gutter M–XL, odsazení panelů na desktopu, mezera nadpis sekce → obsah, okraj S. */
+  --space-8: 32px; /* Okraj stránky M–XL, mezera sidebar → obsah, mezi bloky v patičce. */
+  --space-10: 40px; /* Svislý padding pásů (Proč nakupovat, newsletter) XXS–S. */
+  --space-12: 48px; /* Mezera mezi sekcemi XXS–S; padding pásů M–XL. */
+  --space-16: 64px; /* Mezera mezi sekcemi M–XL. */
+  --space-20: 80px; /* Rezerva pro velké přechody (hero → obsah na XL), zatím nepoužito. */
+  --page-margin: 12px; /* Okraj stránky — responzivní: XXS 12 · XS 16 · S 24 · M–XL 32 px (CSS proměnná --page-margin). */
+  --gutter: 12px; /* Mezera ve mřížce — XXS 12 · XS–S 16 · M–XL 24 px (--gutter). */
+  --section-gap: 48px; /* Mezi sekcemi stránky — XXS–S 48 · M–XL 64 px (--section-gap). */
+  --band-pad: 40px; /* Svislý padding barevných pásů — XXS–S 40 · M–XL 48 px (--band-pad). */
+  --card-pad: 12px; /* Vnitřní padding karty produktu — XXS–XS 12 · S–XL 16 px (--card-pad). */
+  --radius-sm: 4px; /* Ovládací prvky: tlačítka, pole, stepper, štítky, čipy filtrů, náhledy kategorií. */
+  --radius-md: 6px; /* Karty produktů, dlaždice kategorií a služeb, karty prodejen. */
+  --radius-lg: 8px; /* Velké plochy a plovoucí vrstvy: hero banner, megamenu, popup košíku, šuplík filtru. */
+  --radius-round: 999px; /* Výjimka jen pro kruhová počítadla (košík, porovnání, počet filtrů) a stavové tečky. */
+  --bp-xxs: 0px; /* XXS 0–359 px · 4 sloupce, gutter 12, okraj 12 · 1 produkt v řadě. */
+  --bp-xs: 360px; /* XS 360–575 px · 4 sloupce, gutter 16, okraj 16 · 2 produkty. */
+  --bp-s: 576px; /* S 576–767 px · 8 sloupců, gutter 16, okraj 24 · 2 produkty. */
+  --bp-m: 768px; /* M 768–1023 px · 8 sloupců, gutter 24, okraj 32 · 3 produkty, bez sidebaru. */
+  --bp-l: 1024px; /* L 1024–1279 px · 12 sloupců, gutter 24, okraj 32 · sidebar + 3 produkty. */
+  --bp-xl: 1280px; /* XL ≥1280 px · 12 sloupců, gutter 24, kontejner max 1376 · sidebar + 4 produkty. */
+  --control-sm: 32px; /* Čipy filtrů, malé štítky s akcí. Jen sekundární ovládání. */
+  --control-md: 44px; /* Výchozí výška tlačítek, polí, stepperu množství — minimální dotyková plocha. */
+  --control-lg: 52px; /* Hlavní akce v panelech (Zobrazit produkty, Přihlásit k odběru, Koupit). */
+  --header-bar: 48px; /* Výška vyhledávání a ikon v hlavní liště. */
+  --font-display: "Exo 2", "Trebuchet MS", sans-serif;
+  --font-body: "Exo 2", "Segoe UI", system-ui, sans-serif;
+  --text-display: 800 44px/48px var(--font-display); /* H1 kategorie / produktu na L–XL; na XXS–S 30/34. */
+  --text-h2: 700 28px/34px var(--font-display); /* Nadpis sekce nad měřítkem. */
+  --text-h3: 700 18px/24px var(--font-display); /* Nadpis karty, kategorie v megamenu. */
+  --text-price: 800 24px/28px var(--font-display); /* Cena s DPH v kartě; v detailu 36/40. */
+  --text-ui: 600 15px/20px var(--font-display); /* Tlačítka, navigace, štítky (štítky 12/16 caps NE — věta). */
+  --text-body: 400 16px/24px var(--font-body); /* Popisy, odstavce. */
+  --text-body-sm: 400 14px/20px var(--font-body); /* Popis v kartě produktu, položky menu. */
+  --text-caption: 500 13px/18px var(--font-body); /* bez DPH, kód, skladovost. */
+}
+.display {
+  font-family: var(--font-display);
+  font-size: 44px;
+  line-height: 48px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+.h2 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.price {
+  font-family: var(--font-display);
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+.ui {
+  font-family: var(--font-display);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.body-sm {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.caption {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  letter-spacing: 0;
+}

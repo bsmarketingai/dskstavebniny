@@ -1,0 +1,3 @@
+# HeaderActions
+
+Akce v hlavní liště na `primary-500`: Porovnat a účet = ikona nad popiskem v `primary-900`, košík = tmavé tlačítko s cenou, AI asistent = konverzní tlačítko u vyhledávání. Pod 1000 px jen ikony (popisky a cena skryté, `aria-label` zůstává), počítadlo sedí na rohu ikony. Pod 420 px se ikony zúží na 40 px, aby se hlavička vešla na 320 px. Ve skutečné hlavičce je ikona AI asistenta vlastní (`assets/Icons/ai-asistent.svg`).

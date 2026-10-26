@@ -1,0 +1,3 @@
+# Dialog
+
+Kostra všech vrstev: modal (Vybrat prodejnu, Vložili jste do košíku), popover (mini košík na hover) a šuplík (filtr). Bílá, `radius-lg`, `shadow-pop`, padding 16–24 px podle šířky; hlavička s nadpisem `primary-700` a zavíracím tlačítkem. Modal: `role="dialog"`, `aria-modal`, ztmavené pozadí `dsk-scrim` (klik zavře), Esc zavře, fokus jde do vrstvy. BSSHOP: `bs-dialog bs-tab-boundary` (modal), `popup` (popover).

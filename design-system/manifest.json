@@ -1,0 +1,281 @@
+{
+  "manifestVersion": 3,
+  "name": "DSK Stavebniny",
+  "namespace": "DSK",
+  "files": [
+    "breakpoints.md",
+    "spacing.md",
+    "tokens.css"
+  ],
+  "libraries": [],
+  "components": [],
+  "assetGroups": [
+    {
+      "name": "Logo",
+      "order": [
+        "logo-dsk-white.png"
+      ],
+      "files": [
+        {
+          "path": "assets/Logo/logo-dsk-white.png",
+          "id": "bd07991ff68d44c2fce3a091decb0ee2"
+        }
+      ]
+    },
+    {
+      "name": "Icons",
+      "tile": "s",
+      "order": [
+        "ai-asistent.svg"
+      ],
+      "files": [
+        {
+          "path": "assets/Icons/ai-asistent.svg",
+          "id": "8bf09813a093c785fb471fd3bff30427"
+        }
+      ]
+    },
+    {
+      "name": "Other",
+      "files": [
+        {
+          "path": "assets/Default.png",
+          "id": "bc217fd5d69c9f225421968c53b3004b"
+        },
+        {
+          "path": "assets/Desktop_Submenu-1.png",
+          "id": "db889c7fd695f4412cf093387036970a"
+        },
+        {
+          "path": "assets/Desktop_Submenu-2.png",
+          "id": "6c6c12f5c7e01acc7e613bbabea30a09"
+        },
+        {
+          "path": "assets/Desktop_Submenu.png",
+          "id": "54ccce3a6381a265a632dde987dc19b1"
+        },
+        {
+          "path": "assets/Frame 229.png",
+          "id": "7a4c3b734435dc0509cabe0e284920be"
+        },
+        {
+          "path": "assets/L (2).png",
+          "id": "3a68145df2adf9f9f815eaee30fec752"
+        },
+        {
+          "path": "assets/L.png",
+          "id": "c981da2aa5d79ab7252f50aa647b38b7"
+        },
+        {
+          "path": "assets/M (2).png",
+          "id": "adc1849f9039b7fd70855d9ba57d029b"
+        },
+        {
+          "path": "assets/M (3).png",
+          "id": "f9d1d1eb6a3677f89ca40a88d0c6c16f"
+        },
+        {
+          "path": "assets/M.png",
+          "id": "cd25577e6eb2a10412e7c8bdf4d35109"
+        },
+        {
+          "path": "assets/Popup Přidáno do košíku-1.png",
+          "id": "fe16a8233b9474278f36f8b319d4b869"
+        },
+        {
+          "path": "assets/Popup Přidáno do košíku.png",
+          "id": "2fd54d80df10ff33822cffe69f465449"
+        },
+        {
+          "path": "assets/S.png",
+          "id": "7660abd2ce940b49572db441774e0900"
+        },
+        {
+          "path": "assets/XL.png",
+          "id": "a5563b92c6d46814c0f77a93651c6b7b"
+        },
+        {
+          "path": "assets/XS.png",
+          "id": "0ef0c9f9994bd6b00c65b1f9a2977979"
+        },
+        {
+          "path": "assets/XXL (2).png",
+          "id": "b76c9b51f5ad7f6c53031105e5f41f2f"
+        },
+        {
+          "path": "assets/XXL (3).png",
+          "id": "cad15e8ad8e3f05da0d887fe0a5d3d2d"
+        },
+        {
+          "path": "assets/XXL.png",
+          "id": "18af97c3401b407868747c17c5f94c90"
+        },
+        {
+          "path": "assets/XXS (2).png",
+          "id": "38636b4cc318a9b6068755dac58cc2a6"
+        },
+        {
+          "path": "assets/XXS.png",
+          "id": "00080b9d5e4e9a9f070297e4f91b8883"
+        }
+      ]
+    }
+  ],
+  "storage": {
+    "files": {
+      "assets/Default.png": {
+        "store": "blob",
+        "id": "bc217fd5d69c9f225421968c53b3004b",
+        "sha256": "684ef62a42d1a9c0def35b18f61b4080b5b2feedce611887eb9ca87c1d54c20f",
+        "bytes": 360027,
+        "type": "image/png"
+      },
+      "assets/Desktop_Submenu-1.png": {
+        "store": "blob",
+        "id": "db889c7fd695f4412cf093387036970a",
+        "sha256": "08abba5f1b05350cb92469480392b5b0f5da85e7d5b29b4db6cb8fabad8dcf82",
+        "bytes": 431512,
+        "type": "image/png"
+      },
+      "assets/Desktop_Submenu-2.png": {
+        "store": "blob",
+        "id": "6c6c12f5c7e01acc7e613bbabea30a09",
+        "sha256": "e2c25ac0ef8c72876342f14a15f2b9ea66fa704e2fb9ee4565aac6b62741b9ba",
+        "bytes": 472749,
+        "type": "image/png"
+      },
+      "assets/Desktop_Submenu.png": {
+        "store": "blob",
+        "id": "54ccce3a6381a265a632dde987dc19b1",
+        "sha256": "5916e40aa93829d15c9e022e4365f949cd081cdb6cf70d8c117b019628d6a860",
+        "bytes": 504727,
+        "type": "image/png"
+      },
+      "assets/Frame 229.png": {
+        "store": "blob",
+        "id": "7a4c3b734435dc0509cabe0e284920be",
+        "sha256": "24f2fe994e992f01da00c4d6f3e98c8fa4a0eb38ec82a615017b2a984d3462e9",
+        "bytes": 216471,
+        "type": "image/png"
+      },
+      "assets/Icons/ai-asistent.svg": {
+        "store": "blob",
+        "id": "8bf09813a093c785fb471fd3bff30427",
+        "bytes": 1001,
+        "type": "image/svg+xml"
+      },
+      "assets/L (2).png": {
+        "store": "blob",
+        "id": "3a68145df2adf9f9f815eaee30fec752",
+        "sha256": "7f5606ee20d36fc7f7bd09d70b1c0ac8c2912c273807e93c7fd05e16814a8cb8",
+        "bytes": 1760326,
+        "type": "image/png"
+      },
+      "assets/L.png": {
+        "store": "blob",
+        "id": "c981da2aa5d79ab7252f50aa647b38b7",
+        "sha256": "9f7c97c650d5965b946cdc4f9cd1a6d31178bc094b27cdcf675670ca14b12114",
+        "bytes": 1626260,
+        "type": "image/png"
+      },
+      "assets/Logo/logo-dsk-white.png": {
+        "store": "blob",
+        "id": "bd07991ff68d44c2fce3a091decb0ee2",
+        "bytes": 20574,
+        "type": "image/png"
+      },
+      "assets/M (2).png": {
+        "store": "blob",
+        "id": "adc1849f9039b7fd70855d9ba57d029b",
+        "sha256": "9bb103a6f014ce9b0739c3f55faffa463e3126c8c4dee4ef80ad0df9cbaaddb8",
+        "bytes": 1513129,
+        "type": "image/png"
+      },
+      "assets/M (3).png": {
+        "store": "blob",
+        "id": "f9d1d1eb6a3677f89ca40a88d0c6c16f",
+        "sha256": "623b0838c4f188e3e1ff3c4f2692c78e43bd6a576a29c06d1e161b036ebb947c",
+        "bytes": 1518645,
+        "type": "image/png"
+      },
+      "assets/M.png": {
+        "store": "blob",
+        "id": "cd25577e6eb2a10412e7c8bdf4d35109",
+        "sha256": "0c2bfa48d93c2a7b9c228e47f72e4247d4a0a63e676d0f2106091d8966f038a3",
+        "bytes": 1354737,
+        "type": "image/png"
+      },
+      "assets/Popup Přidáno do košíku-1.png": {
+        "store": "blob",
+        "id": "fe16a8233b9474278f36f8b319d4b869",
+        "sha256": "86390d5e22f6628044a5b76a04f7515e71a0eed16fa931b7b2ced5d954f66f16",
+        "bytes": 42537,
+        "type": "image/png"
+      },
+      "assets/Popup Přidáno do košíku.png": {
+        "store": "blob",
+        "id": "2fd54d80df10ff33822cffe69f465449",
+        "sha256": "32d7b9d68291ccf94276cb98171ce0caeef2e874cf8179f481c31a1b220e0618",
+        "bytes": 372253,
+        "type": "image/png"
+      },
+      "assets/S.png": {
+        "store": "blob",
+        "id": "7660abd2ce940b49572db441774e0900",
+        "sha256": "7ed62b724c8b76383eca6c6cce47a8a138c25001cfda01d42a31c6b279e77b80",
+        "bytes": 980036,
+        "type": "image/png"
+      },
+      "assets/XL.png": {
+        "store": "blob",
+        "id": "a5563b92c6d46814c0f77a93651c6b7b",
+        "sha256": "4c37ee82c79c08d05b3fdd72963f8fe12c9ffc161c9c243e3725072658755086",
+        "bytes": 1884526,
+        "type": "image/png"
+      },
+      "assets/XS.png": {
+        "store": "blob",
+        "id": "0ef0c9f9994bd6b00c65b1f9a2977979",
+        "sha256": "5bea171acf7927b0ca9b0cdbea2c0da3440c6dd20621970651b2a841ea045a4f",
+        "bytes": 890000,
+        "type": "image/png"
+      },
+      "assets/XXL (2).png": {
+        "store": "blob",
+        "id": "b76c9b51f5ad7f6c53031105e5f41f2f",
+        "sha256": "482bf798ffaf8b1559395d2620d8d7ceddd722f287e756da95601e2754cf3fe3",
+        "bytes": 3311230,
+        "type": "image/png"
+      },
+      "assets/XXL (3).png": {
+        "store": "blob",
+        "id": "cad15e8ad8e3f05da0d887fe0a5d3d2d",
+        "sha256": "c02307d33f50eb169a1f28dcb0b38869013e2f97369cd555410de046eafe4b5f",
+        "bytes": 2493013,
+        "type": "image/png"
+      },
+      "assets/XXL.png": {
+        "store": "blob",
+        "id": "18af97c3401b407868747c17c5f94c90",
+        "sha256": "5a27e7156c7179ea5ec5c794a0d2bb753331995cdbb2265c606163874e6d031b",
+        "bytes": 2231088,
+        "type": "image/png"
+      },
+      "assets/XXS (2).png": {
+        "store": "blob",
+        "id": "38636b4cc318a9b6068755dac58cc2a6",
+        "sha256": "8ee67540c386a51bbebd93ab99740ea1e04676da6fd56453a6c678ee39925fe7",
+        "bytes": 736574,
+        "type": "image/png"
+      },
+      "assets/XXS.png": {
+        "store": "blob",
+        "id": "00080b9d5e4e9a9f070297e4f91b8883",
+        "sha256": "46b59b48c9eb4e331eb3758100e5df77d1f199be500a53cc89cdcd91255135cc",
+        "bytes": 713605,
+        "type": "image/png"
+      }
+    },
+    "blobBytesUsed": 23435020
+  }
+}
