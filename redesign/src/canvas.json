@@ -127,8 +127,8 @@
       "is_interactive": true,
       "title": "Modal Přihlášení",
       "w": 480,
-      "x": 5782,
-      "y": 4800
+      "x": 4822,
+      "y": 5630
     },
     "Main.dc.html": {
       "expand": "fill",
@@ -161,6 +161,15 @@
       "x": 4822,
       "y": 4800
     },
+    "Nzu.dc.html": {
+      "expand": "fill",
+      "h": 4200,
+      "is_interactive": true,
+      "title": "Služby – Nová zelená úsporám · XL",
+      "w": 1440,
+      "x": 24320,
+      "y": 0
+    },
     "Poptavka.dc.html": {
       "expand": "fill",
       "h": 4060,
@@ -183,9 +192,18 @@
       "h": 2300,
       "is_interactive": true,
       "title": "Modal Vybrat prodejnu",
-      "w": 936,
-      "x": 3806,
+      "w": 987,
+      "x": 3624,
       "y": 4800
+    },
+    "RezaniOceli.dc.html": {
+      "expand": "fill",
+      "h": 4400,
+      "is_interactive": true,
+      "title": "Služby – Řezání materiálu · XL",
+      "w": 1440,
+      "x": 25840,
+      "y": 0
     },
     "Sortiment.dc.html": {
       "expand": "fill",
@@ -226,7 +244,7 @@
     "pages": {
       "kind": "title1",
       "maxW": 8000,
-      "text": "Stránky — homepage, sortiment, kategorie, detail, kontakty, poptávka, dodavatelé, 404, vyhledávání, blog, detaily článků, porovnání, košík (3 kroky)",
+      "text": "Stránky — homepage, sortiment, kategorie, detail, kontakty, poptávka, dodavatelé, 404, vyhledávání, blog, detaily článků, porovnání, košík (3 kroky), služby",
       "w": 240,
       "x": 0,
       "y": -260
@@ -255,6 +273,8 @@
     "Kosik.dc.html",
     "KosikKontakt.dc.html",
     "KosikKontrola.dc.html",
+    "Nzu.dc.html",
+    "RezaniOceli.dc.html",
     "Kategorie.dc.html",
     "Detail.dc.html",
     "MegaMenu.dc.html",

@@ -38,9 +38,19 @@ tools/build.py             znovu vygeneruje HTML ze zdrojů
 | `redesign/Sortiment.html` | Sortiment (rozcestník e-shopu) |
 | `redesign/Kategorie.html` | Výpis kategorie |
 | `redesign/Detail.html` | Detail produktu |
+| `redesign/Vyhledavani.html` | Výsledky vyhledávání |
+| `redesign/Porovnani.html` | Porovnání produktů |
+| `redesign/Kosik.html`, `KosikKontakt.html`, `KosikKontrola.html` | Košík – kroky 1–3 |
+| `redesign/Kontakty.html` | Kontakty |
+| `redesign/Poptavka.html` | Rychlá poptávka |
+| `redesign/Dodavatele.html` | Naši dodavatelé |
+| `redesign/Nzu.html` | Služby – Nová zelená úsporám |
+| `redesign/RezaniOceli.html` | Služby – Řezání oceli |
+| `redesign/Blog.html`, `BlogDetail.html`, `BlogHolcim.html` | Blog – výpis a detaily článků |
+| `redesign/Chyba404.html` | Stránka 404 |
 | `redesign/MegaMenu.html`, `MobilMenu.html` | Megamenu, mobilní menu |
 | `redesign/KosikPopup.html`, `KosikMini.html` | Popup Vložili jste do košíku, mini košík |
-| `redesign/Filtr.html`, `ProdejnaModal.html`, `Naseptavac.html` | Šuplík filtru, výběr prodejny, našeptávač |
+| `redesign/Filtr.html`, `ProdejnaModal.html`, `Naseptavac.html`, `LoginModal.html` | Šuplík filtru, výběr prodejny, našeptávač, přihlášení |
 
 Stránky jsou interaktivní (megamenu, mobilní menu, výběr prodejny, karusely, záložky v detailu, filtr).
 
