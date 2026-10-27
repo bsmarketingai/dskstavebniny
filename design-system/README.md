@@ -20,7 +20,7 @@ Mluvíme jako zkušený prodavač na prodejně: věcně, česky, bez marketingov
 
 **Tvar.** `radius-sm` 4 px — pole, výběr, čipy, štítky, číselník, stránkování. `radius-md` 6 px — **všechna tlačítka**, ikony u nadpisů, karty produktů, dlaždice, volby, kroky košíku. `radius-lg` 8 px — bannery, karty kategorií, karta formuláře, tabulka, dialogy. Vnořený prvek přilepený k okraji rodiče přebírá jeho rádius (číslo kroku 5 0 0 5 v kroku s 6 px). Kulaté jsou jen počítadla a stavové tečky. Karty bez stínu; stín jen plovoucí vrstvy (`shadow-pop`), lišta košíku (`shadow-bar`), toast a karta při hoveru.
 
-**Tlačítka.** Role, ne barvy (karta Button). Sekundární tlačítka jsou **jemná**: bílá, 1 px `primary-200`, text `primary-700` — tlusté 2 px obrysy jen u „Načíst dalších 24“. Tlačítka vedle sebe mají stejnou výšku. Šipky jsou vždy jednoduchý chevron.
+**Tlačítka.** Role, ne barvy — definice tříd v kartě Button, použití podle podkladu v kartě ButtonSurfaces a úplný soupis v sekci Tlačítka. Sekundární tlačítka jsou **jemná**: bílá, 1 px `primary-200`, text `primary-700` — tlusté 2 px obrysy jen u „Načíst dalších 24“. Tlačítka vedle sebe mají stejnou výšku. Šipky jsou vždy jednoduchý chevron.
 
 **Formuláře.** Popisek nad polem, pole 48 px, rámeček `secondary-400`, `radius-sm`; fokus = rámeček `primary-600` + prstenec 3 px `primary-100`.
 
@@ -42,8 +42,8 @@ Sada **Tabler Icons** (outline) v3.24.0, MIT. 20 px v UI, 24 px v hlavičce a ve
 
 Třídy v `components/bundle.css` (prefix `dsk-`, jen tokeny) a karta s ukázkou ke každé:
 
-- **Základ:** Button, Badge, FormControls
-- **E-shop:** ProductCard, PriceStock (cena + skladovost), QuantityStepper, CategoryTile
+- **Základ:** Button, ButtonSurfaces, Badge, FormControls
+- **E-shop:** ProductCard, Stock (skladovost), PriceStock (cena), QuantityStepper, CategoryTile
 - **Košík:** CheckoutSteps, OptionList, CartBar, FormCard
 - **Obsah:** SectionHeading, PromoBanner, DataTable, Faq, Newsletter, Usp
 - **Zpětná vazba:** Notice, InfoBars, Toast

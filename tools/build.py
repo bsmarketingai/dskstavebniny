@@ -215,7 +215,7 @@ def build_ds():
     sw_html = '<div class="sw">' + ''.join(
         f'<div><i style="background:{v}"></i><code>{html.escape(n)}</code><br>{v}</div>' for n, v in swatches) + '</div>'
     docs = [('README.md', 'Přehled'), ('breakpoints.md', 'Breakpointy'), ('spacing.md', 'Rozestupy'),
-            ('naming.md', 'Pojmenování'), ('struktura.md', 'Struktura e-shopu'), ('audit.md', 'Audit komponent'),
+            ('tlacitka.md', 'Tlačítka'), ('naming.md', 'Pojmenování'), ('struktura.md', 'Struktura e-shopu'), ('audit.md', 'Audit komponent'),
             ('api/tokens.md', 'Tokeny')]
     nav = ''.join(f'<a href="#{html.escape(g)}">{html.escape(g)}</a>' for g in groups) + \
         '<a href="#barvy">Barvy</a><a href="#dokumentace">Dokumentace</a><a href="assets/">Assety</a><a href="../prehled.html">← Přehled stránek</a>'

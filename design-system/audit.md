@@ -24,7 +24,7 @@ Srovnání design systému s finálními stránkami redesignu (stav 27. 10. 2026
 
 ## Nové komponenty
 
-CheckoutSteps, OptionList, CartBar, FormCard (košík), Notice, Toast, PromoBanner (kampaň, kalkulačka, pomoc), DataTable (Kde řežeme, parametry), Faq, Newsletter. Z dřívějšího seznamu „Chybí“ jsou hotové: košík ve 3 krocích, výběr dopravy a platby, vyhledávání, přihlášení (modal), stavy formulářů (chyba u pole), toast.
+CheckoutSteps, OptionList, CartBar, FormCard (košík), Stock (skladovost), ButtonSurfaces (tlačítka podle podkladu), Notice, Toast, PromoBanner (kampaň, kalkulačka, pomoc), DataTable (Kde řežeme, parametry), Faq, Newsletter. Z dřívějšího seznamu „Chybí“ jsou hotové: košík ve 3 krocích, výběr dopravy a platby, vyhledávání, přihlášení (modal), stavy formulářů (chyba u pole), toast.
 
 ## Mapování tříd prototypu
 
@@ -49,11 +49,17 @@ CheckoutSteps, OptionList, CartBar, FormCard (košík), Notice, Toast, PromoBann
 
 | Co | Kde | Návrh |
 | --- | --- | --- |
-| Tlačítka s rádiusem 4 px | Filtrovat, Další, Načíst dalších 24, šipky karuselu (`carbtn`), Přihlásit v newsletteru, Odeslat poptávku | přejít na 6 px |
+| Tlačítka s rádiusem 4 px | Do košíku v kartě, Filtrovat, Vybrat svoji prodejnu, stránkování (čísla, Další, Předchozí), Načíst dalších 24, šipky karuselu, Přihlásit v newsletteru, Odeslat poptávku, Zobrazit 36 produktů a Zrušit filtry ve filtru, Odebrat vše, Hledat ve vyhledávání | 6 px (`radius-md`) |
+| Lišta košíku | krok 1 má souhrn pod sebou (popisek nad hodnotou), kroky 2 a 3 v řádku | sjednotit podle kroku 1 (karta CartBar) |
+| Hotové kroky košíku | krok 3 (Kontrola) má hotové kroky s tmavým číslem `primary-800`, krok 2 šedé | šedé jako neaktivní (karta CheckoutSteps) |
+| Kulaté filtry témat (rádius 999) | blog | čipy s rádiusem 4–6 px |
+| Barevné štítky služeb (pastelové) | kontakty | mimo paletu — `dsk-badge--info` nebo `--light` |
+| Rychlá poptávka s rámečkem `secondary-400` | blog | `dsk-btn--soft` |
+| Registrujte se 46 px | modal přihlášení | 44 px |
+| Skladovost v detailu (Jesničánky 12 ks) × přehled po prodejnách (Jesničánky 0 ks) | detail | stejné číslo v obou |
 | Podklad upozornění `#FFF6E8` | košík (`ko-note`) | token `main-100` (#FFF4E5) |
 | Popisky Porovnat / Přihlásit bíle na `primary-500` | hlavička | 13 px tučně má jen 3,0:1 — zvážit `primary-900` nebo tmavé dlaždice |
 | Telefon 26 px v řezu 800 | NZU (`nz-tel`) | 700 podle typografie |
-| Šedé pruhy tabulky `#FAFBFC` | Řezání oceli | nový token `secondary-25` |
 
 ## Stále chybí
 

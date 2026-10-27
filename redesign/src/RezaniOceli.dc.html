@@ -398,9 +398,14 @@ main .ro-h1{margin:16px 0 0;font:800 44px/48px 'Exo 2','Trebuchet MS',sans-serif
 /* jen zelený check tam, kde řežeme */
 .ro-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .ro-cv .ro-y{gap:0}.ro-legend .ro-y{gap:0;margin-right:4px}
-/* dlaždice materiálů: 4 / 3 / řádky pod sebou */
-main .ro-tiles{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-@media (max-width:1023px){main .ro-tiles{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}}
+/* dlaždice materiálů: 9 v řadě / 5 / 3 / řádky pod sebou */
+main .ro-tiles{grid-template-columns:repeat(9,minmax(0,1fr));gap:12px}
+main .ro-tile{padding:8px 8px 10px}
+main .ro-ti{margin-bottom:6px}
+main .ro-tn{font-size:14px;line-height:18px}
+main .ro-ts{font-size:12px;line-height:16px}
+@media (max-width:1149px){main .ro-tiles{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media (max-width:819px){main .ro-tiles{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:640px){main .ro-tiles{grid-template-columns:minmax(0,1fr);gap:8px}
 main .ro-tile{display:grid;grid-template-columns:56px minmax(0,1fr);grid-template-rows:auto auto;column-gap:12px;row-gap:0;align-items:center;padding:8px 12px}
 main .ro-ti{grid-row:1/span 2;width:56px;height:56px;margin:0}

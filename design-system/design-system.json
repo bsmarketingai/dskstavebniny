@@ -203,9 +203,9 @@
  ],
  "lastChange": {
   "by": "Kopřivák",
-  "at": "2026-10-27T08:13:11Z",
+  "at": "2026-10-27T08:38:45Z",
   "via": "Claude (Cowork)",
-  "note": "Srovnáno s finálními stránkami redesignu: tokeny, README, audit, 11 upravených a 10 nových komponent."
+  "note": "Tlačítka (role, velikosti, podklady, soupis), levé menu výpisu, lišta a kroky košíku podle stránek, nová komponenta Stock."
  },
  "layout": "files",
  "libraries": [],
