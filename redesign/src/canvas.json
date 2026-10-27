@@ -2,6 +2,42 @@
   "v": 3,
   "attachments": {},
   "boards": {
+    "Blog.dc.html": {
+      "expand": "fill",
+      "h": 3900,
+      "is_interactive": true,
+      "title": "Blog – výpis článků · XL",
+      "w": 1440,
+      "x": 13680,
+      "y": 0
+    },
+    "BlogDetail.dc.html": {
+      "expand": "fill",
+      "h": 8000,
+      "is_interactive": true,
+      "title": "Blog – detail článku · XL",
+      "w": 1440,
+      "x": 15200,
+      "y": 0
+    },
+    "BlogHolcim.dc.html": {
+      "expand": "fill",
+      "h": 7000,
+      "is_interactive": true,
+      "title": "Blog – detail článku Holcim Lite Extra · XL",
+      "w": 1440,
+      "x": 16720,
+      "y": 0
+    },
+    "Chyba404.dc.html": {
+      "expand": "fill",
+      "h": 2400,
+      "is_interactive": true,
+      "title": "Stránka 404 · XL",
+      "w": 1440,
+      "x": 10640,
+      "y": 0
+    },
     "Detail.dc.html": {
       "expand": "fill",
       "h": 4600,
@@ -45,6 +81,33 @@
       "x": 6080,
       "y": 0
     },
+    "Kosik.dc.html": {
+      "expand": "fill",
+      "h": 3600,
+      "is_interactive": true,
+      "title": "Košík – krok 1 Nákupní košík · XL",
+      "w": 1440,
+      "x": 19760,
+      "y": 0
+    },
+    "KosikKontakt.dc.html": {
+      "expand": "fill",
+      "h": 2800,
+      "is_interactive": true,
+      "title": "Košík – krok 2 Kontaktní údaje · XL",
+      "w": 1440,
+      "x": 21280,
+      "y": 0
+    },
+    "KosikKontrola.dc.html": {
+      "expand": "fill",
+      "h": 3000,
+      "is_interactive": true,
+      "title": "Košík – krok 3 Kontrola údajů · XL",
+      "w": 1440,
+      "x": 22800,
+      "y": 0
+    },
     "KosikMini.dc.html": {
       "h": 640,
       "title": "Popup Můj košík (hover)",
@@ -59,21 +122,29 @@
       "x": 1456,
       "y": 4800
     },
+    "LoginModal.dc.html": {
+      "h": 640,
+      "is_interactive": true,
+      "title": "Modal Přihlášení",
+      "w": 480,
+      "x": 5782,
+      "y": 4800
+    },
     "Main.dc.html": {
       "expand": "fill",
-      "h": 4300,
+      "h": 7468,
       "is_interactive": true,
       "title": "Homepage · XL",
       "w": 2106,
-      "x": -666,
-      "y": 0
+      "x": -2319,
+      "y": 50
     },
     "MegaMenu.dc.html": {
       "h": 840,
       "title": "Megamenu Sortiment · L–XXL",
       "w": 1376,
-      "x": 0,
-      "y": 4800
+      "x": 800,
+      "y": 6376
     },
     "MobilMenu.dc.html": {
       "h": 1400,
@@ -99,6 +170,15 @@
       "x": 7600,
       "y": 0
     },
+    "Porovnani.dc.html": {
+      "expand": "fill",
+      "h": 3400,
+      "is_interactive": true,
+      "title": "Porovnání produktů · XL",
+      "w": 1440,
+      "x": 18240,
+      "y": 0
+    },
     "ProdejnaModal.dc.html": {
       "h": 2300,
       "is_interactive": true,
@@ -114,6 +194,15 @@
       "title": "Sortiment (rozcestník e-shopu) · XXL",
       "w": 1440,
       "x": 4560,
+      "y": 0
+    },
+    "Vyhledavani.dc.html": {
+      "expand": "fill",
+      "h": 4971,
+      "is_interactive": true,
+      "title": "Výsledky vyhledávání · XL",
+      "w": 1440,
+      "x": 12160,
       "y": 0
     }
   },
@@ -137,18 +226,18 @@
     "pages": {
       "kind": "title1",
       "maxW": 8000,
-      "text": "Stránky — homepage, sortiment, kategorie, detail, kontakty, poptávka, dodavatelé",
+      "text": "Stránky — homepage, sortiment, kategorie, detail, kontakty, poptávka, dodavatelé, 404, vyhledávání, blog, detaily článků, porovnání, košík (3 kroky)",
       "w": 240,
       "x": 0,
       "y": -260
     },
     "pops": {
       "kind": "title1",
-      "maxW": 5702,
+      "maxW": 6300,
       "text": "Plovoucí vrstvy a mobilní menu",
       "w": 240,
-      "x": 0,
-      "y": 4540
+      "x": 800,
+      "y": 6116
     }
   },
   "order": [
@@ -157,6 +246,15 @@
     "Kontakty.dc.html",
     "Poptavka.dc.html",
     "Dodavatele.dc.html",
+    "Chyba404.dc.html",
+    "Vyhledavani.dc.html",
+    "Blog.dc.html",
+    "BlogDetail.dc.html",
+    "BlogHolcim.dc.html",
+    "Porovnani.dc.html",
+    "Kosik.dc.html",
+    "KosikKontakt.dc.html",
+    "KosikKontrola.dc.html",
     "Kategorie.dc.html",
     "Detail.dc.html",
     "MegaMenu.dc.html",
@@ -165,7 +263,8 @@
     "MobilMenu.dc.html",
     "KosikMini.dc.html",
     "ProdejnaModal.dc.html",
-    "Naseptavac.dc.html"
+    "Naseptavac.dc.html",
+    "LoginModal.dc.html"
   ],
   "pages": [],
   "title": "DSK Stavebniny — redesign e-shopu"

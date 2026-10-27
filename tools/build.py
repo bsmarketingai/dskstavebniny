@@ -310,6 +310,7 @@ def main():
     build_ds()
     build_index(built)
     build_home()
+    build_404()
 
 
 def build_home():
@@ -318,6 +319,20 @@ def build_home():
     s = s.replace('<head>', '<head>\n<base href="redesign/">', 1)
     (ROOT / 'index.html').write_text(s, encoding='utf-8')
     print('  ✓ index.html (homepage)')
+
+
+def build_404():
+    """Kořenový 404.html pro GitHub Pages. Base se dopočítá podle adresy,
+    protože 404 se servíruje na libovolné cestě (i na projektové stránce /repo/)."""
+    if 'Chyba404' not in BUILT:
+        return
+    s = BUILT['Chyba404']
+    js = ("<script>(function(){var p=location.pathname.split('/').filter(Boolean);"
+          "var b=(/github\\.io$/.test(location.hostname)&&p.length)?'/'+p[0]+'/redesign/':'/redesign/';"
+          "document.write('<base href=\"'+b+'\">');})();</script>")
+    s = s.replace('<head>', '<head>\n' + js, 1)
+    (ROOT / '404.html').write_text(s, encoding='utf-8')
+    print('  ✓ 404.html (stránka nenalezena)')
 
 
 if __name__ == '__main__':

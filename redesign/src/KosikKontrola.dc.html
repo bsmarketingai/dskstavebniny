@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>Košík – kontrola údajů</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&amp;display=swap"><style>
+body{margin:0;background:#fff;color:#1A1E23;font-family:'Exo 2', 'Segoe UI', system-ui, sans-serif}
+a{color:#007DB2} a:hover{color:#005980}
+*{box-sizing:border-box}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid #007DB2;outline-offset:2px}
+.cv:hover{background:#FFAE3D!important}
+footer a:hover,.ubar a:hover,.ubar button:hover,nav[aria-label="Hlavní navigace"] a:not(.ddp a):hover{color:#fff!important;text-decoration:underline!important}
+main a:hover h3 a,main h3 a:hover,.dsk-link:hover{text-decoration:underline}
+:root{--page-margin:12px;--gutter:12px;--section-gap:48px;--band-pad:40px;--card-pad:12px}
+@media (min-width:420px){:root{--page-margin:16px;--gutter:16px}}
+@media (min-width:550px){:root{--page-margin:24px;--card-pad:16px}}
+@media (min-width:820px){:root{--page-margin:32px;--gutter:24px;--section-gap:64px;--band-pad:48px}}
+.lg{display:none!important} .wrap{max-width:calc(1560px + 2 * var(--page-margin));margin:0 auto;padding-left:var(--page-margin);padding-right:var(--page-margin)}
+@media (min-width:820px){.ltm{display:none!important} .m{display:flex!important}}
+@media (max-width:819px){.m{display:none!important}}
+@media (min-width:1000px){.lg{display:flex!important} .ltl{display:none!important}}
+@media (max-width:549px){.hxs{display:none!important}}
+@media (min-width:820px){.srch{order:1!important;flex:1 1 360px!important;max-width:880px}}
+.car{display:grid;grid-auto-flow:column;grid-auto-columns:80%;gap:var(--gutter);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+.car::-webkit-scrollbar{display:none} .car>*{scroll-snap-align:start}
+@media (min-width:420px){.car{grid-auto-columns:calc((100% - var(--gutter))/2)}}
+@media (min-width:820px){.car{grid-auto-columns:calc((100% - 2*var(--gutter))/3)}}
+@media (min-width:1150px){.car{grid-auto-columns:calc((100% - 3*var(--gutter))/4)}}
+@media (min-width:1440px){.car{grid-auto-columns:calc((100% - 4*var(--gutter))/5)}}
+@media (min-width:820px){.acts{gap:16px!important}}
+summary.acc{list-style:none;cursor:pointer} summary.acc::-webkit-details-marker{display:none}
+details[open]>summary.acc .chev{transform:rotate(180deg)} .chev{transition:transform .15s}
+@media (prefers-reduced-motion:reduce){.chev{transition:none}}
+@media (min-width:820px){summary.dsk-hide{display:none!important}}
+@media (max-width:819px){.fbot{flex-direction:column!important;align-items:center!important;text-align:center} .fbot>span{flex-direction:column;align-items:center;gap:8px!important}}
+@media (max-width:999px){.hlm{display:none!important}}
+.sbw{position:relative;display:flex}
+.sbp{display:none;position:absolute;right:0;top:100%;padding-top:8px;width:480px;max-width:calc(100vw - 32px);z-index:40}
+@media (hover:hover) and (min-width:820px){.sbw:hover .sbp,.sbw:focus-within .sbp{display:block}}
+.sbw.closed .sbp{display:none!important}
+/* mobilní optimalizace hlavičky */
+@media (max-width:999px){.acts{gap:4px!important}}
+@media (max-width:549px){.hlogo{height:36px!important}.hbar{padding-top:12px!important;padding-bottom:12px!important;gap:12px 8px!important}.hbtn-t{display:none!important}.hbtn{padding:0 14px!important}.util-hours{display:none!important}.ubar{min-height:40px!important}}
+@media (min-width:550px){.hbtn-i{display:none!important}}
+@media (max-width:419px){.acts>a{min-width:40px!important}#SimpleBasket{min-width:40px!important}.hmenu{width:44px!important;height:44px!important}}
+@media (max-width:549px){h1{font-size:28px!important;line-height:34px!important}main h2,footer h2{font-size:22px!important;line-height:28px!important}}
+.pgrid{grid-template-columns:repeat(1,minmax(0,1fr))}
+@media (min-width:420px){.pgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media (min-width:820px){.pgrid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media (min-width:1150px){.pgrid{grid-template-columns:repeat(4,minmax(0,1fr))!important}}
+@media (min-width:1440px){.pgrid{grid-template-columns:repeat(5,minmax(0,1fr))!important}}
+/* hover stavy položek */
+#MenuCategories a,#MenuCategoriesMega a,.ubar button,.cardlink{transition:background-color .12s,border-color .12s,color .12s}
+#MenuCategories nav a:not([aria-current]):not(.expanded):hover,#MenuCategoriesMega a:not(.active):hover{background:#EBF9FF!important;color:#005980!important}
+#MenuCategories nav a.expanded:hover{background:#EBF9FF!important}
+#MenuCategories nav a[aria-current]:hover,#MenuCategoriesMega a.active:hover{background:#B2E8FF!important}
+main a[href="Kategorie.dc.html"][style*="border:1px solid #E5E7EB"]:hover{border-color:#007DB2!important;background:#EBF9FF!important}
+
+main article:hover h3 a{text-decoration:underline}
+#MenuCategories nav a[style*="color:#C8102E"]:hover,#MenuCategoriesMega a[style*="color:#C8102E"]:hover{color:#C8102E!important;background:#FDF1F1!important}
+@media (prefers-reduced-motion:reduce){#MenuCategories a,#MenuCategoriesMega a{transition:none}}
+.ddw{position:relative;display:flex}
+.ddw .ddp{display:none}
+.ddw:hover .ddp,.ddw:focus-within .ddp{display:block}
+.ddw:hover>a,.ddw:focus-within>a{background:#006594}
+.ddp a[role="menuitem"]:hover{background:#CCF0FF!important;color:#002433!important;text-decoration:none!important}
+.ddp a:not([role="menuitem"]):hover{color:#005980!important;text-decoration:underline!important}
+@media (max-width:999px){#SimpleBasket{background:transparent!important;color:#fff!important;padding:0!important;min-width:48px!important;justify-content:center!important}#SimpleBasket .cbadge{top:4px!important;right:-2px!important}}
+/* focus stavy formulářových polí */
+label:has(> input:not([type="checkbox"]):not([type="radio"])):focus-within,span:has(> input:not([type="checkbox"]):not([type="radio"])):focus-within{box-shadow:0 0 0 2px #fff,0 0 0 4px #007DB2!important;border-color:#007DB2!important;position:relative;z-index:1}
+input:not([type="checkbox"]):not([type="radio"]):focus{outline:0}
+input[type="checkbox"]:focus-visible,input[type="radio"]:focus-visible{outline:3px solid #007DB2!important;outline-offset:2px}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #007DB2!important;outline-offset:2px;box-shadow:0 0 0 2px #fff}
+#SimpleSearch{position:relative}
+#SimpleSearch .whisp{display:none;position:absolute;left:0;right:0;top:calc(100% + 8px);z-index:46;min-width:min(720px,calc(100vw - 24px))}
+#SimpleSearch:focus-within .whisp{display:block}
+details.sbd>summary::-webkit-details-marker{display:none}
+details.sbd[open]>summary .chev{transform:rotate(180deg)}
+details.sbd .chev{transition:transform .15s}
+details.trnode>summary::-webkit-details-marker{display:none}
+details.trnode .trchev{transition:transform .15s}
+details.trnode[open]>summary .trchev{transform:rotate(180deg)}
+@media (prefers-reduced-motion:reduce){details.trnode .trchev{transition:none}}
+/* elevace karty produktu */
+main article{transition:transform 300ms ease,box-shadow 300ms ease,border-color 300ms ease;will-change:transform}
+main article:hover{transform:translateY(-6px);box-shadow:0 12px 24px rgba(0,36,51,0.14)}
+.car{padding-top:8px!important;padding-bottom:24px!important;margin-top:-8px;margin-bottom:-20px}
+@media (prefers-reduced-motion:reduce){main article{transition:none}main article:hover{transform:none}}
+.qcgrid{grid-template-columns:repeat(1,minmax(0,1fr))!important}
+@media (min-width:550px){.qcgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media (min-width:820px){.qcgrid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media (min-width:1150px){.qcgrid{grid-template-columns:repeat(6,minmax(0,1fr))!important}}
+main article h3,main article h3 a{overflow-wrap:anywhere}
+html,body{overflow-x:clip}
+@media (max-width:999px){.hmenu{margin-left:12px}}
+/* skrývací hlavička */
+.shd{position:sticky;top:0;z-index:35;transition:transform 250ms ease;will-change:transform}
+.shd.hidden{transform:translateY(-100%)}
+@media (prefers-reduced-motion:reduce){.shd{transition:none}}
+/* našeptávač na mobilu */
+@media (max-width:819px){
+#SimpleSearch .whisp{min-width:0!important;top:calc(100% + 6px)!important}
+#SimpleSearchWhisper{max-height:calc(100dvh - 190px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;border-radius:6px!important}
+#SimpleSearchWhisper .ns-prod,#SimpleSearchWhisper .ns-cats{flex:1 1 100%!important;min-width:0!important;padding:12px 8px!important}
+#SimpleSearchWhisper .ns-cats{order:-1;border-left:0!important;border-bottom:1px solid #E5E7EB;background:#fff!important}
+#SimpleSearchWhisper .ns-cats ul{flex-direction:row!important;flex-wrap:nowrap;overflow-x:auto;gap:8px!important;padding:0 4px 4px!important;scrollbar-width:none}
+#SimpleSearchWhisper .ns-cats ul::-webkit-scrollbar{display:none}
+#SimpleSearchWhisper .ns-cat{flex:none}
+#SimpleSearchWhisper .ns-cat a{padding:8px 12px!important;border:1px solid #E5E7EB;border-radius:6px;white-space:nowrap}
+#SimpleSearchWhisper .ns-cat a>span:last-child{display:none}
+#SimpleSearchWhisper .ns-cat a>span:first-child{font-size:14px!important;line-height:18px!important}
+#SimpleSearchWhisper .ns-row a{gap:12px!important;padding:8px!important}
+#SimpleSearchWhisper .ns-img{width:48px!important;padding:2px!important}
+#SimpleSearchWhisper .ns-name{font-size:14px!important;line-height:19px!important}
+#SimpleSearchWhisper .ns-net{display:none!important}
+#SimpleSearchWhisper .ns-all{position:sticky;bottom:0;margin:8px 4px 0!important}
+}
+/* hover dlaždic rychlých kontaktů */
+footer a.qct{transition:transform 300ms ease,box-shadow 300ms ease,background-color 300ms ease}
+footer a.qct:hover{transform:translateY(-6px);box-shadow:0 12px 24px rgba(0,0,0,0.35);text-decoration:none!important;color:inherit!important}
+footer a.qct:hover *{text-decoration:none!important}
+@media (prefers-reduced-motion:reduce){footer a.qct{transition:none}footer a.qct:hover{transform:none}}
+/* megamenu full-bleed na menších monitorech */
+@media (max-width:1439px){.mega-wrap{max-width:none!important;padding-left:0!important;padding-right:0!important}#MenuCategoriesMega{border-radius:0!important}}
+/* USP pás */
+.usp{padding:var(--section-gap) 0;background:#fff;border-top:1px solid #E5E7EB;border-bottom:1px solid #E5E7EB}
+.usp-h{margin:0 0 24px;font:700 14px/20px 'Exo 2','Trebuchet MS',sans-serif;color:#5B646E;letter-spacing:.04em}
+.usp-l{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.usp-i{display:flex;flex-direction:column;gap:6px;padding:0 32px;border-left:1px solid #E5E7EB}
+.usp-i:first-child{padding-left:0;border-left:0}
+.usp-k{font:700 28px/34px 'Exo 2','Trebuchet MS',sans-serif;color:#005980;letter-spacing:-0.01em;white-space:nowrap}
+.usp-t{font:700 17px/22px 'Exo 2','Trebuchet MS',sans-serif;color:#1A1E23}
+.pf{display:flex;flex-direction:column;gap:24px}
+.fb-br{position:relative;transition:background-color 300ms ease,transform 300ms ease,box-shadow 300ms ease}
+.fb-br:hover{background:#005980!important;transform:translateY(-6px);box-shadow:0 12px 24px rgba(0,0,0,.28)}
+@media (prefers-reduced-motion:reduce){.fb-br{transition:none}.fb-br:hover{transform:none}}
+.fb-name{color:#fff;text-decoration:none}
+.fb-name::after{content:"";position:absolute;inset:0;z-index:1;border-radius:6px}
+.fb-br:hover .fb-name{text-decoration:underline}
+.fb-br a:not(.fb-name){position:relative;z-index:2}
+.fb-near,.fb-near:visited{color:#003D57!important;font-weight:700;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.fb-near:hover,.fb-near:focus-visible{color:#002433!important;text-decoration-thickness:2px}
+.bl-top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px 48px;padding:8px 0 24px}
+.bl-tx{flex:1 1 520px;min-width:0}
+.bl-h1{margin:0 0 8px;font:700 40px/44px 'Exo 2','Trebuchet MS',sans-serif;color:#005980}
+.bl-lead{margin:0;max-width:60ch;font:400 17px/26px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#1A1E23}
+.bl-search{position:relative;flex:0 1 400px;min-width:0;width:100%}
+.bl-sl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.bl-si{position:absolute;left:14px;top:14px;color:#5B646E;pointer-events:none}
+.bl-in{width:100%;box-sizing:border-box;height:48px;padding:0 44px 0 44px;border:1px solid #A2ABB8;border-radius:6px;background:#fff;font:400 16px/24px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#1A1E23;outline:none}
+.bl-in:focus{border-color:#007DB2;box-shadow:0 0 0 3px #CCF0FF}
+.bl-in::placeholder{color:#5B646E}
+.bl-in::-webkit-search-cancel-button{display:none}
+.bl-clr{position:absolute;right:4px;top:4px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border:0;border-radius:4px;background:transparent;color:#5B646E;cursor:pointer}
+.bl-clr:hover{background:#F4F5F7;color:#003D57}
+.bl-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px;padding:0;list-style:none}
+.bl-chip{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border:1px solid #A2ABB8;border-radius:999px;background:#fff;color:#003D57;font:600 15px/20px 'Exo 2','Trebuchet MS',sans-serif;cursor:pointer;white-space:nowrap;transition:background-color .15s ease,border-color .15s ease}
+.bl-chip:hover{border-color:#007DB2;background:#EBF9FF}
+.bl-chip .bl-n{font-weight:500;color:#5B646E}
+.bl-chip.on{background:#003D57;border-color:#003D57;color:#fff}
+.bl-chip.on .bl-n{color:#B2E8FF}
+.bl-meta{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px;margin:0 0 16px;font:500 15px/20px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#5B646E}
+.bl-meta strong{color:#1A1E23}
+.bl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gutter);margin:0;padding:0;list-style:none}
+.bl-grid>li{display:flex;min-width:0}
+.bl-card{position:relative;display:flex;flex-direction:column;width:100%;border:1px solid #E5E7EB;border-radius:6px;background:#fff;overflow:hidden;transition:box-shadow .2s ease,border-color .2s ease,transform .2s ease}
+.bl-card:hover{border-color:#80D9FF;box-shadow:0 10px 24px rgba(0,36,51,.12);transform:translateY(-2px)}
+.bl-th{position:relative;display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;background:#EBF9FF;color:#007DB2;overflow:hidden}
+.bl-th img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.bl-card:hover .bl-th img{transform:scale(1.03)}
+.bl-body{flex:1;display:flex;flex-direction:column;gap:8px;padding:20px}
+.bl-cat{align-self:flex-start;font:700 12px/16px 'Exo 2','Trebuchet MS',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#005980}
+.bl-t{margin:0;font:700 20px/26px 'Exo 2','Trebuchet MS',sans-serif;color:#003D57}
+.bl-a{color:inherit;text-decoration:none}
+.bl-a::after{content:"";position:absolute;inset:0;z-index:1}
+.bl-card:hover .bl-a{text-decoration:underline;text-underline-offset:3px}
+.bl-a:focus-visible{outline:none}
+.bl-card:has(.bl-a:focus-visible){outline:3px solid #007DB2;outline-offset:2px}
+.bl-p{margin:0;font:400 15px/22px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#5B646E;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.bl-go{display:flex;align-items:center;gap:6px;margin-top:auto;padding-top:8px;font:700 15px/20px 'Exo 2','Trebuchet MS',sans-serif;color:#007DB2}
+.bl-go svg{transition:transform .2s ease}
+.bl-card:hover .bl-go svg{transform:translateX(3px)}
+.bl-more{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:32px}
+.bl-mbtn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 28px;border:0;border-radius:6px;background:#F59300;color:#002433;font:700 16px/20px 'Exo 2','Trebuchet MS',sans-serif;cursor:pointer}
+.bl-mbtn:hover{background:#FFAE3D}
+.bl-mtx{font:500 14px/20px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#5B646E}
+.bl-bar{width:220px;height:4px;border-radius:2px;background:#E5E7EB;overflow:hidden}
+.bl-bar span{display:block;height:100%;background:#007DB2}
+.bl-empty{display:flex;flex-direction:column;align-items:center;gap:12px;padding:48px 24px;border:1px dashed #A2ABB8;border-radius:6px;text-align:center}
+.bl-empty h2{margin:0;font:700 22px/28px 'Exo 2','Trebuchet MS',sans-serif;color:#005980}
+.bl-empty p{margin:0;font:400 16px/24px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#1A1E23}
+.bl-reset{height:44px;padding:0 20px;border:0;border-radius:6px;background:#003D57;color:#fff;font:700 15px/20px 'Exo 2','Trebuchet MS',sans-serif;cursor:pointer}
+.bl-reset:hover{background:#005980}
+.bl-help{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;margin-top:var(--section-gap);padding:24px 28px;border-radius:6px;background:#EBF9FF}
+.bl-help h2{margin:0 0 4px;font:700 22px/28px 'Exo 2','Trebuchet MS',sans-serif;color:#005980}
+.bl-help p{margin:0;font:400 16px/24px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#1A1E23}
+.bl-hl{display:flex;flex-wrap:wrap;gap:12px}
+.bl-hb{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 20px;border-radius:6px;background:#003D57;color:#fff;text-decoration:none;font:700 15px/20px 'Exo 2','Trebuchet MS',sans-serif}
+.bl-hb:hover{background:#005980;color:#fff}
+.bl-hb2{background:#fff;color:#003D57;border:1px solid #A2ABB8}
+.bl-hb2:hover{background:#fff;border-color:#007DB2;color:#003D57}
+@media (prefers-reduced-motion:reduce){.bl-card,.bl-th img,.bl-go svg,.bl-chip{transition:none}.bl-card:hover{transform:none}}
+@media (max-width:1023px){.bl-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:819px){.bl-h1{font-size:32px;line-height:38px}.bl-search{flex-basis:100%}.bl-chips{flex-wrap:nowrap;overflow-x:auto;margin-left:calc(var(--page-margin) * -1);margin-right:calc(var(--page-margin) * -1);padding:0 var(--page-margin) 4px;scrollbar-width:none}.bl-chips::-webkit-scrollbar{display:none}}
+@media (max-width:599px){.bl-grid{grid-template-columns:minmax(0,1fr)}.bl-body{padding:16px}.bl-t{font-size:18px;line-height:24px}.bl-mbtn{width:100%;justify-content:center}.bl-help{padding:20px}.bl-hb{flex:1 1 100%;justify-content:center}}
+.nl{padding:0 0 var(--section-gap);background:#EBF9FF}
+.nl-box{display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;padding:20px 24px;border-radius:8px;background:#003D57;color:#fff}
+.nl-ic{display:flex;align-items:center;justify-content:center;width:52px;height:52px;flex:none;border-radius:6px;background:#F59300;color:#002433}
+.nl-tx{flex:1 1 260px;min-width:0}
+.nl-h{margin:0;font:700 22px/28px 'Exo 2','Trebuchet MS',sans-serif;color:#fff}
+.nl-p{margin:2px 0 0;font:500 14px/20px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#B2E8FF}
+.nl-f{flex:1 1 420px;display:flex;flex-direction:column;gap:6px;margin:0;min-width:0}
+.nl-row{display:flex;gap:8px}
+.nl-in{flex:1;min-width:0;display:block;position:relative}
+.nl-in input{width:100%;box-sizing:border-box;height:48px;padding:0 14px;border:1px solid #005980;border-radius:4px;background:#fff;font:400 16px/24px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#1A1E23;outline:0}
+.nl-in input:focus{box-shadow:0 0 0 3px #F59300}
+.nl-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.nl-btn{flex:none;display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 20px;border:0;border-radius:4px;background:#F59300;color:#002433;font:700 15px/20px 'Exo 2','Trebuchet MS',sans-serif;cursor:pointer;transition:background-color .15s}
+.nl-btn:hover{background:#FFAE3D}
+.nl-cb{display:flex;align-items:center;gap:8px;font:500 13px/18px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#fff;cursor:pointer}
+.nl-cb input{width:18px;height:18px;margin:0;accent-color:#F59300}
+.nl-cb a{color:#fff;font-weight:700}
+@media (max-width:549px){.nl-box{padding:20px}.nl-row{flex-direction:column}.nl-btn{justify-content:center}}
+.usp-d{font:400 15px/22px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#5B646E;max-width:30ch}
+
+.usp-btn{display:flex;flex-direction:column;gap:6px;width:calc(100% + 24px);margin:-12px;padding:12px;border:0;border-radius:6px;background:transparent;text-align:left;font:inherit;color:inherit;cursor:pointer;transition:background-color .2s ease}
+.usp-btn:hover{background:#EBF9FF}
+.usp-btn .usp-t{display:flex;align-items:center;gap:6px}
+.usp-go{color:#007DB2;transition:transform .2s ease}
+.usp-btn:hover .usp-t{color:#005980;text-decoration:underline;text-underline-offset:3px}
+.usp-btn:hover .usp-go{transform:translateX(3px)}
+@media (prefers-reduced-motion:reduce){.usp-btn,.usp-go{transition:none}}
+@media (max-width:1149px){.usp-k{font-size:26px;line-height:32px}.usp-i{padding:0 20px}}
+@media (max-width:819px){.usp-l{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:28px}.usp-i:nth-child(3){padding-left:0;border-left:0}}
+@media (max-width:419px){.usp-l{grid-template-columns:minmax(0,1fr);row-gap:0}.usp-i{padding:16px 0!important;border-left:0!important;border-top:1px solid #E5E7EB}.usp-i:first-child{border-top:0;padding-top:0!important}.usp-k{font-size:24px;line-height:30px}}
+/* newsletter na tmavé fotce */
+.qbtn[disabled]{opacity:.35;cursor:not-allowed}
+.fq{padding:var(--section-gap) 0;background:#EBF9FF}
+.fq-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px;margin-bottom:24px}
+.fq-h{display:flex;align-items:center;gap:12px;margin:0;font:700 28px/34px 'Exo 2','Trebuchet MS',sans-serif;color:#005980}
+.fq-hic{display:flex;align-items:center;justify-content:center;width:44px;height:44px;flex:none;border-radius:6px;background:#005980;color:#fff}
+.fq-p{margin:20px 0 0;text-align:right;font:400 15px/22px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#1A1E23}
+.fq-g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:start}
+.fq-i{border:1px solid #CCF0FF;border-radius:6px;background:#fff}
+.fq-i[open]{border-color:#80D9FF}
+.fq-q{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:80px;box-sizing:border-box;padding:14px 20px;cursor:pointer;font:700 16px/22px 'Exo 2','Trebuchet MS',sans-serif;color:#003D57}
+.fq-q::-webkit-details-marker{display:none}
+.fq-q:hover{color:#005980}
+.fq-q:hover span{text-decoration:underline}
+.fq-ch{color:#007DB2;transition:transform .2s ease}
+.fq-i[open] .fq-ch{transform:rotate(180deg)}
+.fq-a{margin:0;padding:0 20px 20px;font:400 15px/23px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#1A1E23}
+.fq-a a{color:#007DB2;font-weight:600}
+@media (max-width:1149px){.fq-g{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:819px){.fq-g{grid-template-columns:minmax(0,1fr);gap:8px}}
+@media (prefers-reduced-motion:reduce){.fq-ch{transition:none}}
+@media (max-width:819px){.fdop{border-top:0!important;padding-top:8px!important}}
+/* našeptávač na šíři webu, na mobilu full-bleed */
+.hbar{position:relative}
+#SimpleSearch{position:static!important}
+#SimpleSearch .whisp{left:var(--page-margin)!important;right:var(--page-margin)!important;top:calc(100% - 8px)!important;min-width:0!important}
+@media (max-width:819px){#SimpleSearch .whisp{left:0!important;right:0!important;top:100%!important}#SimpleSearchWhisper{border-radius:0!important;box-shadow:0 16px 32px rgba(0,36,51,0.22)!important}}
+/* vyhledávání v hlavičce – decentní focus bez zvětšení */
+#SimpleSearch label:focus-within{box-shadow:inset 0 0 0 2px #007DB2!important;position:static!important;z-index:auto!important}
+#SimpleSearch input[type="search"]{-webkit-appearance:none;appearance:none;outline:0!important;box-shadow:none!important}
+#SimpleSearch input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}
+@media (max-width:819px){#SimpleSearchWhisper .ns-cats{order:1!important;border-bottom:0!important;border-top:1px solid #E5E7EB!important}#SimpleSearchWhisper .ns-all{position:static!important}}
+/* mobilní hlavička: ikony u sebe, odstup od hamburgeru, badge nepřetéká */
+@media (max-width:1023px){.acts{gap:2px!important}.acts>a,.acts>#LoginUser{min-width:44px!important}.acts>a>span>span[style*="position:absolute"]{right:-8px!important}#SimpleBasket{margin-left:2px}.hmenu{margin-left:18px!important}}
+@media (max-width:419px){.acts>a,.acts>#LoginUser{min-width:40px!important}.hmenu{margin-left:14px!important}}
+.ko-h1{margin:0 0 20px;font:700 40px/44px 'Exo 2','Trebuchet MS',sans-serif;color:#005980}
+.ko-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 24px;padding:0;list-style:none;counter-reset:none}
+.ko-s>a,.ko-si{display:flex;align-items:center;gap:14px;height:64px;padding:0 16px 0 10px;border-radius:6px;background:#F4F5F7;color:#5B646E;text-decoration:none}
+.ko-s>a:hover{background:#EBF9FF}
+.ko-sn{display:flex;align-items:center;justify-content:center;width:44px;height:44px;flex:none;border-radius:6px;background:#E5E7EB;color:#5B646E;font:700 20px/1 'Exo 2','Trebuchet MS',sans-serif}
+.ko-st{display:flex;flex-direction:column;min-width:0;font:700 19px/24px 'Exo 2','Trebuchet MS',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ko-sk{font:600 12px/16px 'Exo 2','Segoe UI',system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase}
+.ko-s--cur .ko-si{background:#EBF9FF;color:#003D57;box-shadow:inset 0 0 0 1px #80D9FF}
+.ko-s--cur .ko-sn{background:#005980;color:#fff}
+.ko-s--done>a{color:#003D57}
+.ko-s--done .ko-sn{background:#1B7F3B;color:#fff}
+.ko-note{display:flex;gap:12px;align-items:flex-start;margin:0 0 24px;padding:14px 18px;border-radius:6px;background:#FFF6E8;font:400 15px/22px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#1A1E23}
+.ko-note svg{color:#B45309;margin-top:1px}
+.ko-tab{border-top:1px solid #E5E7EB}
+.ko-th,.ko-r{display:grid;grid-template-columns:88px minmax(0,1fr) 170px 150px 130px 140px 52px;align-items:center;gap:16px}
+.ko-th{padding:12px 0;border-bottom:1px solid #E5E7EB;font:600 13px/18px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#5B646E}
+.ko-th .ko-c-p,.ko-th .ko-c-t{text-align:right}
+.ko-r{padding:16px 0;border-bottom:1px solid #E5E7EB}
+.ko-img{display:block;width:88px;height:88px;padding:6px;box-sizing:border-box;border:1px solid #E5E7EB;border-radius:6px;background:#fff}
+.ko-img>span{display:block;position:relative;width:100%;height:100%;overflow:hidden}
+.ko-img img{position:absolute;top:0;width:900%;height:100%;max-width:none}
+.ko-nm{display:flex;flex-direction:column;gap:4px;min-width:0}
+.ko-nm a{font:700 16px/22px 'Exo 2','Trebuchet MS',sans-serif;color:#1A1E23;text-decoration:none}
+.ko-nm a:hover{text-decoration:underline;color:#005980}
+.ko-code{font:500 13px/18px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#5B646E}
+.ko-q{display:flex;align-items:center;justify-content:space-between;width:132px;height:44px;border:1px solid #E5E7EB;border-radius:4px;background:#fff}
+.ko-qb{width:40px;height:42px;border:0;border-radius:4px;background:transparent;color:#003D57;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.ko-qb:hover{background:#EBF9FF}
+.ko-qb[disabled]{opacity:.35;cursor:not-allowed;background:transparent}
+.ko-qv{font:600 15px/20px 'Exo 2','Trebuchet MS',sans-serif;font-variant-numeric:tabular-nums}
+.ko-c-p{text-align:right;font:500 15px/20px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#1A1E23;font-variant-numeric:tabular-nums}
+.ko-c-p small{display:block;font-size:12px;line-height:16px;color:#5B646E}
+.ko-c-t{text-align:right;font:700 18px/22px 'Exo 2','Trebuchet MS',sans-serif;color:#005980;font-variant-numeric:tabular-nums}
+.ko-rm{width:44px;height:44px;border:0;border-radius:6px;background:transparent;color:#C8102E;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.ko-rm:hover{background:#FDECEE}
+.ko-ml{display:none}
+.ko-sub{display:flex;justify-content:flex-end;gap:24px;padding:16px 0 0;font:500 15px/20px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#5B646E}
+.ko-sub b{font:700 18px/22px 'Exo 2','Trebuchet MS',sans-serif;color:#1A1E23}
+.ko-empty{display:flex;flex-direction:column;align-items:center;gap:12px;padding:48px 16px;text-align:center}
+.ko-empty h2{margin:0;font:700 24px/30px 'Exo 2','Trebuchet MS',sans-serif;color:#005980}
+.ko-empty a{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 24px;border-radius:6px;background:#003D57;color:#fff;text-decoration:none;font:700 15px/20px 'Exo 2','Trebuchet MS',sans-serif}
+.ko-opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 40px;margin-top:40px}
+.ko-box{min-width:0}
+.ko-bh{display:flex;align-items:center;gap:12px;margin:0 0 14px;font:700 24px/30px 'Exo 2','Trebuchet MS',sans-serif;color:#005980}
+.ko-bi{display:flex;align-items:center;justify-content:center;width:44px;height:44px;flex:none;border-radius:6px;background:#005980;color:#fff}
+.ko-ol{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;list-style:none}
+.ko-o{display:flex;align-items:center;gap:12px;min-height:52px;padding:8px 16px;box-sizing:border-box;border:1px solid #E5E7EB;border-radius:6px;background:#fff;cursor:pointer;font:500 16px/22px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#1A1E23;transition:background-color .15s ease,border-color .15s ease}
+.ko-o:hover{border-color:#80D9FF;background:#F7FCFF}
+.ko-o.on{border-color:#007DB2;background:#EBF9FF;box-shadow:inset 0 0 0 1px #007DB2}
+.ko-o input{width:20px;height:20px;margin:0;flex:none;accent-color:#003D57;cursor:pointer}
+.ko-ot{flex:1;min-width:0}
+.ko-op{flex:none;font:700 15px/20px 'Exo 2','Trebuchet MS',sans-serif;color:#1B7F3B;font-variant-numeric:tabular-nums}
+.ko-op--pay{color:#B45309}
+.ko-op--calc{font-weight:600;color:#007DB2}
+.ko-tip{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;width:32px;height:32px;flex:none;margin:-6px -8px -6px 0;border:0;border-radius:50%;background:transparent;color:#007DB2;cursor:help}
+.ko-tip:hover{background:#CCF0FF}
+.ko-bar{position:sticky;bottom:0;z-index:20;margin-top:40px;background:rgba(255,255,255,.97);border-top:1px solid #E5E7EB;box-shadow:0 -10px 28px rgba(0,36,51,.12)}
+.ko-bar-in{display:flex;align-items:center;gap:16px 32px;min-height:88px;padding-top:12px;padding-bottom:12px;box-sizing:border-box}
+.ko-back{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 18px;border:1px solid #B2E8FF;border-radius:6px;background:#fff;color:#005980;text-decoration:none;font:700 15px/20px 'Exo 2','Trebuchet MS',sans-serif;white-space:nowrap}
+.ko-back:hover{background:#F7FCFF;border-color:#80D9FF;color:#003D57}
+.ko-sum{display:flex;align-items:baseline;gap:8px 32px;margin:0 0 0 auto;flex-wrap:wrap;justify-content:flex-end}
+.ko-sum-i{display:flex;align-items:baseline;gap:10px}
+.ko-sum dt{font:500 15px/20px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#5B646E}
+.ko-sum dd{margin:0}
+.ko-ship{font:700 17px/22px 'Exo 2','Trebuchet MS',sans-serif;color:#1A1E23}
+.ko-tot{font:700 32px/36px 'Exo 2','Trebuchet MS',sans-serif;color:#005980;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ko-next{display:inline-flex;align-items:center;gap:16px;min-height:64px;padding:8px 20px 8px 28px;box-sizing:border-box;border-radius:6px;background:#F59300;color:#002433;text-decoration:none;transition:background-color .15s ease}
+.ko-next:hover{background:#FFAE3D;color:#002433}
+.ko-next-t{display:flex;flex-direction:column}
+.ko-next-t b{font:700 20px/24px 'Exo 2','Trebuchet MS',sans-serif}
+.ko-next-t span{font:500 14px/18px 'Exo 2','Segoe UI',system-ui,sans-serif}
+.ko-rel{padding-top:var(--section-gap)}
+/* krok 3 */
+.kc-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+.kc-col{display:flex;flex-direction:column;gap:24px}
+.kc-ed{display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 14px;border:1px solid #B2E8FF;border-radius:6px;background:#fff;color:#005980;text-decoration:none;font:700 14px/20px 'Exo 2','Trebuchet MS',sans-serif;white-space:nowrap}
+.kc-ed:hover{background:#F7FCFF;border-color:#80D9FF;color:#003D57}
+.kc-dl{display:flex;flex-direction:column;gap:12px;margin:0}
+.kc-dl>div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px;align-items:baseline}
+.kc-dl dt{font:600 15px/22px 'Exo 2','Trebuchet MS',sans-serif;color:#5B646E}
+.kc-dl dd{margin:0;font:500 16px/22px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#1A1E23;overflow-wrap:anywhere}
+.kc-free{display:inline-block;margin-left:10px;font:700 14px/20px 'Exo 2','Trebuchet MS',sans-serif;color:#1B7F3B}
+.kc-note{margin:0;font:400 16px/24px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#1A1E23}
+.kc-sup{font-weight:700;color:#B45309}.kc-inq{font-weight:700;color:#007DB2}
+.kc-ih{margin-top:40px}.kc-ih .kc-ed{margin-left:auto}
+.kc-tab .ko-th,.kc-tab .ko-r{grid-template-columns:88px minmax(0,1fr) 220px 110px 140px 150px}
+.kc-q{font:700 16px/22px 'Exo 2','Trebuchet MS',sans-serif;color:#1A1E23;font-variant-numeric:tabular-nums}
+.kc-fin{display:grid;grid-template-columns:minmax(0,1fr) 520px;gap:24px 40px;align-items:start;margin-top:24px}
+.kc-tot{grid-column:2;display:flex;flex-direction:column;gap:10px;margin:0;padding:20px 24px;border-radius:8px;background:#F4F5F7}
+.kc-tot>div{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.kc-tot dt{font:500 15px/22px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#5B646E}
+.kc-tot dd{margin:0;font:600 16px/22px 'Exo 2','Trebuchet MS',sans-serif;color:#1A1E23;font-variant-numeric:tabular-nums;white-space:nowrap}
+.kc-tot-ex{padding-top:12px;border-top:1px solid #E5E7EB}
+.kc-tot-in dt{font-weight:700;font-size:17px;color:#1A1E23}
+.kc-tot-in dd{font:700 32px/36px 'Exo 2','Trebuchet MS',sans-serif;color:#005980}
+.kc-ok{grid-column:2;display:flex;flex-direction:column;gap:10px;padding:16px 20px;border:1px solid #E5E7EB;border-radius:8px;background:#fff}
+.kc-ok--err{border-color:#C8102E;background:#FFF7F8}
+.kc-err,.kc-sent{display:flex;align-items:center;gap:8px;margin:0;font:600 14px/20px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#C8102E}
+.kc-sent{color:#1B7F3B}
+.kc-pay{margin:0;padding-left:32px;font:400 14px/20px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#5B646E}
+button.ko-next{border:0;cursor:pointer;text-align:left;font-family:inherit}
+#kc-agree:focus-visible{outline:2px solid #007DB2;outline-offset:2px}
+.kc-ok label:has(> input):focus-within{box-shadow:none!important}
+@media (max-width:1149px){.kc-fin{grid-template-columns:minmax(0,1fr)}.kc-tot,.kc-ok{grid-column:1}.kc-tab .ko-r{grid-template-areas:"img nm nm" "img st st" "q q t"}}
+@media (max-width:819px){.kc-grid{grid-template-columns:minmax(0,1fr)}.kc-dl>div{grid-template-columns:100px minmax(0,1fr);gap:12px}.kc-ed span{display:none}.kc-ed{width:40px;padding:0;justify-content:center}.kc-tot{padding:16px}.kc-tot-in dd{font-size:26px;line-height:30px}.kc-ih{margin-top:28px}}
+
+/* krok 2 */
+.kf{display:flex;flex-direction:column;gap:24px}
+.kf-card{border:1px solid #E5E7EB;border-radius:8px;background:#fff;overflow:hidden}
+.kf-hd{display:flex;align-items:center;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;padding:16px 24px;background:#F4F5F7;border-bottom:1px solid #E5E7EB}
+.kf-hd h2{display:flex;align-items:center;gap:12px;margin:0;font:700 22px/28px 'Exo 2','Trebuchet MS',sans-serif;color:#005980}
+.kf-acc{display:flex;align-items:center;gap:12px;width:100%;min-height:64px;padding:12px 24px;box-sizing:border-box;border:0;background:#F4F5F7;cursor:pointer;font:700 18px/24px 'Exo 2','Trebuchet MS',sans-serif;color:#003D57;text-align:left}
+.kf-acc:hover{background:#EBF9FF}
+.kf-acc input{width:22px;height:22px;margin:0;flex:none;accent-color:#003D57;cursor:pointer}
+.kf-acc small{display:block;font:400 14px/20px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#5B646E}
+.kf-acc.on{background:#EBF9FF;border-bottom:1px solid #CCF0FF}
+.kf-body{padding:24px}
+.kf-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 24px}
+.kf-full{grid-column:1/-1}
+.kf-f{display:flex;flex-direction:column;gap:6px;min-width:0}
+.kf-l{font:600 15px/20px 'Exo 2','Trebuchet MS',sans-serif;color:#1A1E23}
+.kf-l i{font-style:normal;color:#C8102E;margin-left:2px}
+.kf-l span{font-weight:400;color:#5B646E}
+#kfm .kf-in{width:100%;box-sizing:border-box;height:48px;padding:0 14px;border:1px solid #A2ABB8;border-radius:4px;background:#fff;font:400 16px/24px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#1A1E23;outline:0!important;box-shadow:none;transition:border-color .15s ease,box-shadow .15s ease;-webkit-appearance:none;appearance:none}
+#kfm textarea.kf-in{height:auto;min-height:96px;padding:12px 14px;resize:vertical}
+#kfm select.kf-in{padding-right:40px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23003D57' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6l6 -6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;cursor:pointer}
+#kfm .kf-in::placeholder{color:#8A939E}
+#kfm .kf-in:focus{border-color:#007DB2;box-shadow:0 0 0 3px #CCF0FF!important}
+#kfm label:has(> input):focus-within,#kfm span:has(> input):focus-within{box-shadow:none!important}
+.kf-hint{font:400 13px/18px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#5B646E}
+.kf-login{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 16px;border:1px solid #B2E8FF;border-radius:6px;background:#fff;color:#005980;font:700 15px/20px 'Exo 2','Trebuchet MS',sans-serif;cursor:pointer}
+.kf-login:hover{background:#F7FCFF;border-color:#80D9FF}
+.kf-cb{display:flex;align-items:flex-start;gap:12px;font:400 15px/22px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#1A1E23;cursor:pointer}
+.kf-cb input{width:20px;height:20px;margin:1px 0 0;flex:none;accent-color:#003D57;cursor:pointer}
+.kf-cb a{color:#007DB2;font-weight:600}
+.kf-req{margin:0;font:400 13px/18px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#5B646E}
+.kf-req i{font-style:normal;color:#C8102E}
+@media (max-width:1149px){.ko-th{display:none}.ko-r{grid-template-columns:72px minmax(0,1fr) auto;grid-template-areas:"img nm rm" "img st st" "q q t";gap:8px 14px}.ko-r>.ko-c-i{grid-area:img;align-self:start}.ko-r>.ko-nm{grid-area:nm}.ko-r>.ko-c-s{grid-area:st}.ko-r>.ko-c-q{grid-area:q}.ko-r>.ko-c-p{display:none}.ko-r>.ko-c-t{grid-area:t;align-self:center}.ko-r>.ko-c-r{grid-area:rm;align-self:start;margin:-8px -8px 0 0}.ko-img{width:72px;height:72px}.ko-ml{display:inline;font:500 13px/18px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#5B646E}.ko-c-q{display:flex;align-items:center;gap:10px}}
+@media (max-width:819px){.ko-h1{font-size:28px;line-height:34px;margin-bottom:16px}
+.ko-steps{gap:6px}.ko-s>a,.ko-si{height:52px;gap:8px;padding:0 8px 0 6px}.ko-sn{width:36px;height:36px;font-size:16px}.ko-st{font-size:13px;line-height:17px}.ko-sk{display:none}.ko-s:not(.ko-s--cur) .ko-st{display:none}.ko-s--cur{grid-column:span 1}
+.ko-steps{grid-template-columns:auto minmax(0,1fr) auto}.ko-s--cur{order:0}
+.ko-opts{grid-template-columns:minmax(0,1fr);margin-top:28px}
+.ko-bh{font-size:20px;line-height:26px}
+.ko-bar-in{padding-left:16px;padding-right:16px}
+.ko-bar-in{flex-wrap:wrap;gap:8px 12px;min-height:0;padding-top:10px;padding-bottom:10px}
+.ko-back{order:3;height:44px;padding:0 12px}.ko-back span{display:none}
+.ko-sum{order:1;width:100%;margin:0;justify-content:space-between;gap:4px 16px}
+.ko-sum-i--tot{margin-left:auto}.ko-tot{font-size:24px;line-height:28px}.ko-sum dt{font-size:13px}
+.ko-next{order:4;flex:1;min-height:52px;padding:6px 14px 6px 18px;justify-content:space-between}.ko-next-t b{font-size:17px;line-height:22px}.ko-next-t span{font-size:12px;line-height:16px}
+.kf-g{grid-template-columns:minmax(0,1fr)}.kf-body{padding:16px}.kf-hd{padding:14px 16px}.kf-acc{padding:12px 16px;font-size:16px}
+}
+@media (prefers-reduced-motion:reduce){.ko-o,.ko-next,#kfm .kf-in{transition:none}}
+
+
+.ko-steps{display:flex}.ko-s{flex:1 1 0;min-width:0}.ko-s--cur{flex:2.2 1 0}.ko-s--done>a{color:#5B646E}.ko-s--done>a:hover{background:#EBF9FF;color:#003D57}.ko-s--done .ko-sn{background:#E5E7EB;color:#5B646E}.ko-s--done>a:hover .ko-sn{background:#CCF0FF;color:#003D57}@media (max-width:819px){.ko-s{flex:0 0 auto}.ko-s--cur{flex:1 1 auto}}
+
+.ko-s>a,.ko-si{padding-left:0;overflow:hidden}.ko-sn{width:64px;height:100%;border-radius:6px 0 0 6px}@media (max-width:819px){.ko-s>a,.ko-si{padding-left:0}.ko-sn{width:48px;height:100%}}
+
+/* mobil: 3 ikony hlavičky stejně široké a stejně od sebe */
+@media (max-width:999px){.acts{gap:0!important}.acts>a,.acts>#LoginUser,.acts #SimpleBasket{width:40px!important;min-width:40px!important;padding:0!important;margin:0!important}.acts>.sbw{margin:0!important}}@media (max-width:419px){.acts>a,.acts>#LoginUser,.acts #SimpleBasket{width:36px!important;min-width:36px!important}.hmenu{margin-left:10px!important}}
+
+.ko-back{height:64px;box-sizing:border-box;padding:0 22px}@media (max-width:819px){.ko-back{height:52px;padding:0 14px}}
+
+.ko-s--todo .ko-si,.ko-s--done>a{background:#fff;border:1px solid #E5E7EB;box-sizing:border-box}.ko-s--todo .ko-sn,.ko-s--done .ko-sn{background:#F4F5F7;border-radius:5px 0 0 5px}.ko-s--done>a:hover{background:#F7FCFF;border-color:#B2E8FF}.ko-s--done>a:hover .ko-sn{background:#EBF9FF}.ko-s--cur .ko-si{box-shadow:none;border:1px solid #80D9FF;box-sizing:border-box}.ko-s--cur .ko-sn{border-radius:5px 0 0 5px}
+
+/* tmavý spodní pás košíku */
+.ko-bar{background:#003D57!important;border-top:0!important;box-shadow:0 -8px 24px rgba(0,36,51,.22)!important;color:#fff}.ko-bar .ko-sum dt{color:#B2E8FF}.ko-bar .ko-ship{color:#fff}.ko-bar .ko-tot{color:#fff}.ko-bar .ko-back{background:transparent;border:1px solid rgba(255,255,255,.45);color:#fff}.ko-bar .ko-back:hover{background:rgba(255,255,255,.12);border-color:#fff;color:#fff}.ko-bar .ko-back:focus-visible,.ko-bar .ko-next:focus-visible{outline:3px solid #fff!important;outline-offset:2px}
+
+
+@media (max-width:819px){.ko-bar .ko-next{flex:0 0 auto!important;margin-left:auto;justify-content:flex-start;gap:12px}.ko-bar .ko-back{margin-right:auto}}
+</style></helmet>
+<div style="min-height:100%;display:flex;flex-direction:column"><div class="shd {{hdrCls}}"><div style="background:#002433;color:#fff">
+<div class="wrap ubar" style="display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:36px;font:500 13px/18px 'Exo 2', 'Segoe UI', system-ui, sans-serif">
+<div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+<button type="button" onClick="{{openStore}}" aria-haspopup="dialog" style="display:flex;align-items:center;gap:8px;color:#fff;text-decoration:underline;border:0;background:transparent;padding:0;font:inherit;cursor:pointer" style-hover="text-decoration: underline"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"> <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path> <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"></path> </svg>Pardubice – Jesničánky</button>
+<span style="display:flex;align-items:center;gap:8px;color:#B2E8FF"><span style="width:8px;height:8px;border-radius:999px;background:#3FBF6A"></span>Otevřeno<span class="util-hours">&nbsp;· Po–Pá 7:00–16:30</span></span></div>
+<nav aria-label="Servisní odkazy" class="lg" style="align-items:center;gap:20px"><button type="button" onClick="{{openStore}}" aria-haspopup="dialog" style="display:flex;align-items:center;gap:8px;color:#fff;text-decoration:none;font-weight:600;border:0;background:transparent;padding:0;font:inherit;font-weight:600;cursor:pointer" style-hover="text-decoration: underline"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"> <path d="M4 14v-3a8 8 0 1 1 16 0v3"></path> <path d="M18 19c0 1.657 -2.686 3 -6 3"></path> <path d="M4 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3z"></path> <path d="M15 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3z"></path> </svg>Rychlé kontakty</button></nav><a class="ltl" href="Kontakty.dc.html" style="text-decoration:none;display:flex;align-items:center;gap:8px;border:0;background:transparent;color:#fff;padding:8px 0 8px 8px;font:600 13px/18px 'Exo 2', 'Segoe UI', system-ui, sans-serif;cursor:pointer" style-hover="text-decoration: underline"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"> <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path> </svg><span class="hxs">Kontakty</span></a></div></div><div style="background:#009FE3">
+<div class="wrap hbar" style="display:flex;align-items:center;gap:16px 32px;flex-wrap:wrap;padding-top:16px;padding-bottom:16px">
+<a href="Main.dc.html" aria-label="DSK Stavebniny – úvod" style="display:block;flex:none"><img src="/_blob/4e20e38d3f92bef4132a4bc919e36451" alt="Stavebniny DSK" class="hlogo" style="display:block;height:44px;width:auto"></a>
+<div id="SimpleSearch" class="SimpleSearchView bs-view SimpleSearch srch" style="order:3;flex:1 1 100%;display:flex;gap:8px;min-width:0">
+<form role="search" style="flex:1;display:flex;min-width:0">
+<label style="flex:1;display:flex;align-items:center;gap:12px;background:#fff;border-radius:6px 0 0 6px;padding:0 16px;height:48px;min-width:0;color:#5B646E"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"> <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path> <path d="M21 21l-6 -6"></path> </svg><span style="position:absolute;width:1px;height:1px;overflow:hidden">Hledat v e-shopu</span><input type="search" placeholder="Hledejte z 17 100 produktů, např. lepidlo na EPS" autocomplete="off" aria-autocomplete="list" aria-controls="SimpleSearchWhisper" style="border:0;outline:0;flex:1;min-width:0;font:400 16px/24px 'Exo 2', 'Segoe UI', system-ui, sans-serif;color:#1A1E23;background:transparent"></label>
+<button type="submit" class="hbtn" aria-label="Hledat" style="height:48px;padding:0 20px;border:0;border-radius:0 6px 6px 0;background:#003D57;color:#fff;font:600 15px/20px 'Exo 2', 'Trebuchet MS', sans-serif;display:flex;align-items:center;justify-content:center" style-hover="background: #005980"><span class="hbtn-t">Hledat</span><span class="hbtn-i" style="display:flex"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path> <path d="M21 21l-6 -6"></path> </svg></span></button></form><a href="Kosik.dc.html" class="cv" style="display:flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 16px;border-radius:6px;background:#F59300;color:#002433;text-decoration:none;font:700 15px/20px 'Exo 2', 'Trebuchet MS', sans-serif;flex:none" style-hover="background: #FFAE3D"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" stroke="none" fill-rule="evenodd" d="M15.2,3.5c.3,0,.5.2.5.5,0,2.1,1.7,3.8,3.8,3.8s.5.2.5.5-.2.5-.5.5c-2.1,0-3.8,1.7-3.8,3.8s-.2.5-.5.5-.5-.2-.5-.5c0-2.1-1.7-3.8-3.8-3.8s-.5-.2-.5-.5.2-.5.5-.5c2.1,0,3.8-1.7,3.8-3.8s.2-.5.5-.5ZM20.1,1.3c.1,0,.2.1.2.2,0,.9.8,1.7,1.7,1.7s.2.1.2.2-.1.2-.2.2c-.9,0-1.7.8-1.7,1.7s-.1.2-.2.2-.2-.1-.2-.2c0-.9-.8-1.7-1.7-1.7s-.2-.1-.2-.2.1-.2.2-.2c.9,0,1.7-.8,1.7-1.7s.1-.2.2-.2Z"></path><path fill="currentColor" stroke="none" fill-rule="evenodd" d="M10.8,10.7c.1,0,.2,0,.2.2,0,.9.7,1.6,1.6,1.6s.2,0,.2.2,0,.2-.2.2c-.9,0-1.6.7-1.6,1.6s0,.2-.2.2-.2,0-.2-.2c0-.9-.7-1.6-1.6-1.6s-.2,0-.2-.2,0-.2.2-.2c.9,0,1.6-.7,1.6-1.6s0-.2.2-.2Z"></path><path d="M12.2,4.2h-7.3c-1.8,0-3.3,1.5-3.3,3.3v8.3c0,1.9,1.5,3.4,3.4,3.4h0v3.5l5-3.5h6.1c1.9,0,3.4-1.5,3.4-3.4v-4.5"></path></svg><span class="hxs">AI asistent</span></a><div class="whisp"><dc-import name="Naseptavac" hint-size="100%,560px"></dc-import></div></div><div class="acts" style="order:2;margin-left:auto;display:flex;align-items:center;gap:8px"><a href="Porovnani.dc.html" aria-label="Porovnat, 3 produkty" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-width:48px;height:48px;color:#fff;text-decoration:none;font:700 13px/16px 'Exo 2', 'Trebuchet MS', sans-serif"><span style="position:relative;display:flex"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M7 20l10 0"></path> <path d="M6 6l6 -1l6 1"></path> <path d="M12 3l0 17"></path> <path d="M9 12l-3 -6l-3 6a3 3 0 0 0 6 0"></path> <path d="M21 12l-3 -6l-3 6a3 3 0 0 0 6 0"></path> </svg><span style="position:absolute;top:-8px;right:-14px;background:#F59300;color:#002433;border-radius:999px;font:700 11px/20px 'Exo 2', 'Trebuchet MS', sans-serif;min-width:20px;text-align:center;padding:0 4px">3</span></span><span class="hlm">Porovnat</span></a><button type="button" id="LoginUser" class="LoginUserView bs-view LoginUser" onClick="{{openLogin}}" aria-haspopup="dialog" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-width:48px;height:48px;color:#fff;text-decoration:none;font:700 13px/16px 'Exo 2', 'Trebuchet MS', sans-serif;border:0;background:transparent;padding:0;cursor:pointer"><span style="position:relative;display:flex"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path> <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path> </svg></span><span class="hlm">Přihlásit</span></button><div class="sbw {{miniCls}}" onMouseLeave="{{resetMini}}"><a href="Kosik.dc.html" id="SimpleBasket" class="SimpleBasketView bs-view SimpleBasket" aria-label="Košík, 3 položky, 7 858 Kč" aria-haspopup="dialog" style="display:flex;align-items:center;justify-content:center;gap:8px;min-width:48px;height:48px;padding:0 16px;border-radius:6px;background:#003D57;color:#fff;text-decoration:none;font:700 16px/20px 'Exo 2', 'Trebuchet MS', sans-serif;position:relative" style-hover="background: #005980"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M2 3h1a2 2 0 0 1 2 2v10a2 2 0 0 0 2 2h15"></path> <path d="M9 6m0 3a3 3 0 0 1 3 -3h4a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-4a3 3 0 0 1 -3 -3z"></path> <path d="M9 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path> <path d="M18 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path> </svg><span class="hlm">7 858 Kč</span><span class="cbadge" style="position:absolute;top:-8px;right:-8px;background:#F59300;color:#002433;border-radius:999px;font:700 11px/20px 'Exo 2', 'Trebuchet MS', sans-serif;min-width:20px;text-align:center;padding:0 4px">3</span></a><div class="sbp"><dc-import name="KosikMini" on-close="{{closeMini}}" hint-size="100%,560px"></dc-import></div></div><button type="button" class="ltl hmenu" onClick="{{toggleMob}}" aria-expanded="{{mobOpen}}" aria-controls="MenuCategoriesRwd" aria-label="{{mobLabel}}" style="width:48px;height:48px;border:0;border-radius:6px;background:#003D57;color:#fff;display:flex;align-items:center;justify-content:center" style-hover="background: #005980"><sc-if value="{{mobClosed}}" hint-placeholder-val="{{true}}"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"> <path d="M4 6l16 0"></path> <path d="M4 12l16 0"></path> <path d="M4 18l16 0"></path> </svg></sc-if><sc-if value="{{mobOpen}}" hint-placeholder-val="{{false}}"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"> <path d="M18 6l-12 12"></path> <path d="M6 6l12 12"></path> </svg></sc-if></button></div></div></div><sc-if value="{{mobOpen}}" hint-placeholder-val="{{false}}"><div class="ltl" ref="{{ovRef}}" tabIndex="-1" onKeyDown="{{ovKey}}" style="display:block;outline:none;max-height:calc(100dvh - 172px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch"><dc-import name="MobilMenu" on-close="{{closeMob}}" hint-size="100%,1400px"></dc-import></div></sc-if><nav aria-label="Hlavní navigace" class="lg" style="background:#007DB2">
+<div class="wrap" style="display:flex;align-items:stretch;gap:48px;width:100%;min-height:56px">
+<button type="button" onClick="{{toggleMega}}" onMouseEnter="{{megaEnter}}" onMouseLeave="{{megaLeave}}" aria-expanded="{{megaOpen}}" style="display:flex;align-items:center;gap:8px;border:0;background:#80D9FF;color:#002433;padding:0 16px;margin:8px 0;border-radius:6px;font:700 15px/20px 'Exo 2', 'Trebuchet MS', sans-serif;flex:none" style-hover="background: #B2E8FF"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"> <path d="M4 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path> <path d="M14 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path> <path d="M4 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path> <path d="M14 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path> </svg>Sortiment<svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"> <path d="M6 9l6 6l6 -6"></path> </svg></button>
+<div style="flex: none; display:flex; align-items:stretch; justify-content: flex-end; gap:8px; margin-left: auto"><a href="#" style="display:flex;align-items:center;padding:0 12px;color:#fff;text-decoration:none;font:700 16px/20px 'Exo 2', 'Trebuchet MS', sans-serif;white-space:nowrap" style-hover="background: #004F70; color: #FFFFFF">Služby</a><div class="ddw"><a href="Blog.dc.html" style="display:flex;align-items:center;padding:0 12px;color:#fff;text-decoration:none;font:700 16px/20px 'Exo 2', 'Trebuchet MS', sans-serif;white-space:nowrap" style-hover="background: #004F70; color: #FFFFFF" aria-haspopup="true">Články<span style="display:flex;margin-left:4px"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"> <path d="M6 9l6 6l6 -6"></path> </svg></span></a><div class="ddp" role="menu" aria-label="Články" style="position:absolute;left:0;top:100%;z-index:45;min-width:300px;padding:8px 0;background:#fff;border-radius:0 0 8px 8px;box-shadow:0 12px 32px rgba(0,36,51,0.18)"><a href="Blog.dc.html" role="menuitem" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 12px;margin:0 8px;border-radius:6px;color:#003D57;text-decoration:none;font:600 15px/20px 'Exo 2', 'Trebuchet MS', sans-serif" style-hover="background: #EBF9FF !important; color: #005980 !important">Tepelné izolace<span style="display:flex;color:#007DB2"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"> <path d="M9 6l6 6l-6 6"></path> </svg></span></a><a href="Blog.dc.html" role="menuitem" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 12px;margin:0 8px;border-radius:6px;color:#003D57;text-decoration:none;font:600 15px/20px 'Exo 2', 'Trebuchet MS', sans-serif" style-hover="background: #EBF9FF !important; color: #005980 !important">Barvy, nátěry, omítkoviny<span style="display:flex;color:#007DB2"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"> <path d="M9 6l6 6l-6 6"></path> </svg></span></a><a href="Blog.dc.html" role="menuitem" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 12px;margin:0 8px;border-radius:6px;color:#003D57;text-decoration:none;font:600 15px/20px 'Exo 2', 'Trebuchet MS', sans-serif" style-hover="background: #EBF9FF !important; color: #005980 !important">Okna a dveře<span style="display:flex;color:#007DB2"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"> <path d="M9 6l6 6l-6 6"></path> </svg></span></a><a href="Blog.dc.html" role="menuitem" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 12px;margin:0 8px;border-radius:6px;color:#003D57;text-decoration:none;font:600 15px/20px 'Exo 2', 'Trebuchet MS', sans-serif" style-hover="background: #EBF9FF !important; color: #005980 !important">Fasády<span style="display:flex;color:#007DB2"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"> <path d="M9 6l6 6l-6 6"></path> </svg></span></a><a href="Blog.dc.html" role="menuitem" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 12px;margin:0 8px;border-radius:6px;color:#003D57;text-decoration:none;font:600 15px/20px 'Exo 2', 'Trebuchet MS', sans-serif" style-hover="background: #EBF9FF !important; color: #005980 !important">Interiér<span style="display:flex;color:#007DB2"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"> <path d="M9 6l6 6l-6 6"></path> </svg></span></a><a href="Blog.dc.html" role="menuitem" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 12px;margin:0 8px;border-radius:6px;color:#003D57;text-decoration:none;font:600 15px/20px 'Exo 2', 'Trebuchet MS', sans-serif" style-hover="background: #EBF9FF !important; color: #005980 !important">Dlažby, ploty a schody<span style="display:flex;color:#007DB2"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"> <path d="M9 6l6 6l-6 6"></path> </svg></span></a><a href="Blog.dc.html" role="menuitem" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 12px;margin:0 8px;border-radius:6px;color:#003D57;text-decoration:none;font:600 15px/20px 'Exo 2', 'Trebuchet MS', sans-serif" style-hover="background: #EBF9FF !important; color: #005980 !important">Hrubá stavba<span style="display:flex;color:#007DB2"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"> <path d="M9 6l6 6l-6 6"></path> </svg></span></a><a href="Blog.dc.html" role="menuitem" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 12px;margin:0 8px;border-radius:6px;color:#003D57;text-decoration:none;font:600 15px/20px 'Exo 2', 'Trebuchet MS', sans-serif" style-hover="background: #EBF9FF !important; color: #005980 !important">Stavební chemie<span style="display:flex;color:#007DB2"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"> <path d="M9 6l6 6l-6 6"></path> </svg></span></a><a href="Blog.dc.html" role="menuitem" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 12px;margin:0 8px;border-radius:6px;color:#003D57;text-decoration:none;font:600 15px/20px 'Exo 2', 'Trebuchet MS', sans-serif" style-hover="background: #EBF9FF !important; color: #005980 !important">Pórobeton<span style="display:flex;color:#007DB2"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"> <path d="M9 6l6 6l-6 6"></path> </svg></span></a><a href="Blog.dc.html" role="menuitem" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 12px;margin:0 8px;border-radius:6px;color:#003D57;text-decoration:none;font:600 15px/20px 'Exo 2', 'Trebuchet MS', sans-serif" style-hover="background: #EBF9FF !important; color: #005980 !important">Vyzkoušeli jsme pro vás<span style="display:flex;color:#007DB2"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"> <path d="M9 6l6 6l-6 6"></path> </svg></span></a><a href="Blog.dc.html" style="display:flex;align-items:center;gap:8px;margin:8px 16px 4px;padding-top:12px;border-top:1px solid #E5E7EB;color:#007DB2;text-decoration:none;font:700 14px/20px 'Exo 2', 'Trebuchet MS', sans-serif" style-hover="background: #EBF9FF !important; color: #005980 !important; text-decoration: underline">Všechny články<svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6l-6 6"></path></svg></a></div></div><a href="Blog.dc.html" style="display:flex;align-items:center;padding:0 12px;color:#fff;text-decoration:none;font:700 16px/20px 'Exo 2', 'Trebuchet MS', sans-serif;white-space:nowrap" style-hover="background: #004F70; color: #FFFFFF">Novinky a akce</a><a href="#" style="display:flex;align-items:center;padding:0 12px;color:#fff;text-decoration:none;font:700 16px/20px 'Exo 2', 'Trebuchet MS', sans-serif;white-space:nowrap" style-hover="background: #004F70; color: #FFFFFF">Průmyslová práva</a><a href="Kontakty.dc.html" style="display:flex;align-items:center;padding:0 12px;color:#fff;text-decoration:none;font:700 16px/20px 'Exo 2', 'Trebuchet MS', sans-serif;white-space:nowrap" style-hover="background: #004F70; color: #FFFFFF">Kariéra</a><a href="Kontakty.dc.html" style="display:flex;align-items:center;padding:0 12px;color:#fff;text-decoration:none;font:700 16px/20px 'Exo 2', 'Trebuchet MS', sans-serif;white-space:nowrap" style-hover="background: #004F70; color: #FFFFFF">Kontakty</a></div>
+</div></nav><sc-if value="{{megaOpen}}" hint-placeholder-val="{{false}}"><div style="position:relative;z-index:30"><button type="button" onClick="{{closeMega}}" onMouseEnter="{{megaLeave}}" aria-label="Zavřít menu" tabIndex="-1" style="position:absolute;left:0;right:0;top:0;height:200vh;z-index:0;border:0;padding:0;margin:0;background:rgba(0,36,51,0.35);cursor:default"></button><div ref="{{megaRef}}" tabIndex="-1" onKeyDown="{{megaKey}}" onMouseEnter="{{megaEnter}}" onMouseLeave="{{megaLeave}}" style="position:absolute;left:0;right:0;top:0;z-index:1;outline:none"><div class="wrap mega-wrap"><dc-import name="MegaMenu" on-close="{{closeMega}}" hint-size="100%,840px"></dc-import></div></div></div></sc-if></div><main class="wrap ko" style="width:100%"><nav aria-label="Drobečková navigace" style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;font:500 13px/18px 'Exo 2', 'Segoe UI', system-ui, sans-serif;padding:16px 0"><a href="Main.dc.html" aria-label="Úvod" style="display:flex;color:#5B646E" style-hover="text-decoration: underline"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l-2 0l9 -9l9 9l-2 0"></path><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"></path></svg></a><span style="color:#5B646E;display:flex"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6l-6 6"></path></svg></span><span aria-current="page" style="color:#1A1E23">Kontrola údajů</span></nav><h1 class="ko-h1">Kontrola údajů</h1><ol class="ko-steps" aria-label="Kroky objednávky"><li class="ko-s ko-s--done"><a href="Kosik.dc.html" style="color: #003D57"><span class="ko-sn" style="background: #003D57; color: #ffffff; border-color: #003D57">1</span><span class="ko-st" style="color: #003D57; font-weight: 700"><span class="ko-sk" style="color: #007DB2">Krok 1</span>Nákupní košík</span></a></li><li class="ko-s ko-s--done"><a href="KosikKontakt.dc.html" style="color: #003D57"><span class="ko-sn" style="background: #003D57; color: #ffffff; border-color: #003D57">2</span><span class="ko-st" style="color: #003D57; font-weight: 700"><span class="ko-sk" style="color: #007DB2">Krok 2</span>Kontaktní údaje</span></a></li><li class="ko-s ko-s--cur" aria-current="step"><span class="ko-si"><span class="ko-sn">3</span><span class="ko-st"><span class="ko-sk">Krok 3</span>Kontrola údajů</span></span></li></ol><p class="ko-note" role="note"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path><path d="M12 9h.01"></path><path d="M11 12h1v4h1"></path></svg><span>Pokud objednávka obsahuje zboží s dostupností <b class="kc-sup">Skladem u dodavatele</b> nebo <b class="kc-inq">Pouze na poptávku</b>, závisí jeho dodání na dopravě a výrobních kapacitách dodavatele. O možnostech doručení vás bude kontaktovat pracovník DSK.</span></p><div class="kc-grid"><section class="kf-card" aria-labelledby="kc-c-h"><div class="kf-hd"><h2 id="kc-c-h"><span class="ko-bi"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path></svg></span>Kontaktní údaje</h2></div><div class="kf-body"><dl class="kc-dl"><div><dt>Jméno</dt><dd>Jan Novák</dd></div><div><dt>E-mail</dt><dd>jan.novak@email.cz</dd></div><div><dt>Telefon</dt><dd>+420 602 123 456</dd></div><div><dt>Ulice, čp.</dt><dd>Na Drážce 1248</dd></div><div><dt>PSČ, město</dt><dd>530 02 Pardubice</dd></div><div><dt>Země</dt><dd>Česko</dd></div></dl></div></section><section class="kf-card" aria-labelledby="kc-n-h"><div class="kf-hd"><h2 id="kc-n-h"><span class="ko-bi"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"></path><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path><path d="M9 13h6"></path><path d="M9 17h4"></path></svg></span>Poznámka</h2></div><div class="kf-body"><p class="kc-note">Vyzvednu ve čtvrtek dopoledne, prosím připravit na paletu.</p></div></section></div><h2 class="ko-bh kc-ih"><span class="ko-bi"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5"></path><path d="M12 12l8 -4.5"></path><path d="M12 12l0 9"></path><path d="M12 12l-8 -4.5"></path></svg></span>Zboží v objednávce</h2><div class="ko-tab kc-tab" role="table" aria-label="Položky objednávky"><div class="ko-th" role="row"><span role="columnheader"><span style="position:absolute;width:1px;height:1px;overflow:hidden">Foto</span></span><span role="columnheader">Název</span><span role="columnheader">Dostupnost</span><span role="columnheader">Množství</span><span role="columnheader" class="ko-c-p">Cena za kus</span><span role="columnheader" class="ko-c-t">Cena celkem</span></div><div class="ko-r" role="row"><div class="ko-c-i" role="cell"><a class="ko-img" href="Detail.dc.html" tabIndex="-1" aria-hidden="true"><span><img src="/_blob/5f0e1e3507cb03469a6ae7dff5321d86" alt="" style="left:-0%"></span></a></div><div class="ko-nm" role="cell"><a href="Detail.dc.html">Lepicí a stěrkovací lepidlo na EPS, Arsanit Therma+ TH-03, 25 kg</a><span class="ko-code">Kód: 1190012</span></div><div class="ko-c-s" role="cell"><span class="stk"><span class="stk-my"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l10 -10"></path></svg>Jesničánky: <b>48 ks</b></span><span class="stk-all">Celkem na 9 prodejnách: <b>5 258 ks</b></span></span></div><div class="ko-c-q" role="cell"><span class="kc-q">10 ks</span><span class="ko-ml">× 220,58&nbsp;Kč</span></div><div class="ko-c-p" role="cell">220,58&nbsp;Kč<small>182,30&nbsp;Kč bez DPH</small></div><div class="ko-c-t" role="cell">2&nbsp;205,80&nbsp;Kč</div></div><div class="ko-r" role="row"><div class="ko-c-i" role="cell"><a class="ko-img" href="Detail.dc.html" tabIndex="-1" aria-hidden="true"><span><img src="/_blob/5f0e1e3507cb03469a6ae7dff5321d86" alt="" style="left:-800%"></span></a></div><div class="ko-nm" role="cell"><a href="Detail.dc.html">Lepicí a stěrkovací lepidlo na EPS a MW weber.tmel 700, 25 kg</a><span class="ko-code">Kód: 0304401</span></div><div class="ko-c-s" role="cell"><span class="stk"><span class="stk-my"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l10 -10"></path></svg>Jesničánky: <b>22 ks</b></span><span class="stk-all">Celkem na 9 prodejnách: <b>1 864 ks</b></span></span></div><div class="ko-c-q" role="cell"><span class="kc-q">12 ks</span><span class="ko-ml">× 289,00&nbsp;Kč</span></div><div class="ko-c-p" role="cell">289,00&nbsp;Kč<small>238,84&nbsp;Kč bez DPH</small></div><div class="ko-c-t" role="cell">3&nbsp;468,00&nbsp;Kč</div></div><div class="ko-r" role="row"><div class="ko-c-i" role="cell"><a class="ko-img" href="Detail.dc.html" tabIndex="-1" aria-hidden="true"><span><img src="/_blob/5f0e1e3507cb03469a6ae7dff5321d86" alt="" style="left:-400%"></span></a></div><div class="ko-nm" role="cell"><a href="Detail.dc.html">HASIT 160 FEIN-Kalkputz, 30 kg – vnitřní/vnější vápenný štuk, zrno 0,5 mm</a><span class="ko-code">Kód: 2205160</span></div><div class="ko-c-s" role="cell"><span class="stk"><span class="stk-my stk-my--no"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M12 7v5l3 3"></path></svg>Jesničánky: 0&nbsp;ks</span><span class="stk-all">Celkem na 9 prodejnách: <b>312 ks</b></span></span></div><div class="ko-c-q" role="cell"><span class="kc-q">7 ks</span><span class="ko-ml">× 312,00&nbsp;Kč</span></div><div class="ko-c-p" role="cell">312,00&nbsp;Kč<small>257,85&nbsp;Kč bez DPH</small></div><div class="ko-c-t" role="cell">2&nbsp;184,00&nbsp;Kč</div></div></div><div class="kc-fin"><dl class="kc-tot"><div><dt>Zboží celkem</dt><dd>7&nbsp;857,80&nbsp;Kč</dd></div><div><dt>Doprava: Osobní odběr v Pardubicích – Jesničánkách</dt><dd>0 Kč</dd></div><div><dt>Platba: Hotově na prodejně</dt><dd>0 Kč</dd></div><div class="kc-tot-ex"><dt>Konečná cena bez DPH</dt><dd>6&nbsp;494,05&nbsp;Kč</dd></div><div class="kc-tot-in"><dt>Konečná cena s DPH</dt><dd>7&nbsp;857,80&nbsp;Kč</dd></div></dl><div class="kc-ok {{okCls}}"><label class="kf-cb"><input type="checkbox" id="kc-agree" checked="{{agree}}" onChange="{{toggleAgree}}" aria-describedby="kc-err" aria-invalid="{{agreeInv}}"><span>Souhlasím s <a href="#">obchodními podmínkami</a> a beru na vědomí <a href="#">zpracování osobních údajů</a>.</span></label><sc-if value="{{showErr}}" hint-placeholder-val="{{false}}"><p class="kc-err" id="kc-err" role="alert"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path><path d="M12 9h.01"></path><path d="M11 12h1v4h1"></path></svg>Pro odeslání objednávky potvrďte souhlas s obchodními podmínkami.</p></sc-if><sc-if value="{{sent}}" hint-placeholder-val="{{false}}"><p class="kc-sent" role="status"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l10 -10"></path></svg>Děkujeme! Objednávku jsme přijali, potvrzení vám přijde e-mailem.</p></sc-if><p class="kc-pay">Odesláním objednávky se zavazujete k její úhradě.</p></div></div></main><div class="ko-bar" role="region" aria-label="Souhrn objednávky"><div class="wrap ko-bar-in"><a class="ko-back" href="KosikKontakt.dc.html"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6l6 6"></path></svg><span>Zpět ke kontaktním údajům</span></a><dl class="ko-sum"><div class="ko-sum-i"><dt>Poštovné a balné</dt><dd class="ko-ship">0 Kč</dd></div><div class="ko-sum-i ko-sum-i--tot"><dt>Konečná cena s DPH</dt><dd class="ko-tot">7&nbsp;857,80&nbsp;Kč</dd></div></dl><button type="button" class="ko-next" onClick="{{send}}"><span class="ko-next-t"><b>Odeslat objednávku</b><span>s povinností platby</span></span><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6l-6 6"></path></svg></button></div></div><sc-if value="{{storeOpen}}" hint-placeholder-val="{{false}}"><div ref="{{ovRef}}" tabIndex="-1" onKeyDown="{{ovKey}}" style="position:fixed;inset:0;z-index:60;display:flex;align-items:flex-start;justify-content:center;padding:32px 16px;overflow:auto;outline:none">
+<button type="button" onClick="{{closeStore}}" aria-label="Zavřít" tabIndex="-1" style="position:fixed;inset:0;border:0;padding:0;margin:0;background:rgba(0,36,51,0.55);cursor:default"></button>
+<div style="position:relative;width:936px;max-width:100%"><dc-import name="ProdejnaModal" on-close="{{closeStore}}" hint-size="100%,2300px"></dc-import></div></div></sc-if><sc-if value="{{loginOpen}}" hint-placeholder-val="{{false}}"><div tabIndex="-1" onKeyDown="{{loginKey}}" style="position:fixed;inset:0;z-index:70;display:flex;align-items:center;justify-content:center;padding:32px 16px;overflow:auto;outline:none">
+<button type="button" onClick="{{closeLogin}}" aria-label="Zavřít" tabIndex="-1" style="position:fixed;inset:0;border:0;padding:0;margin:0;background:rgba(0,36,51,0.55);cursor:default"></button>
+<div style="position:relative;width:480px;max-width:100%;margin:auto"><dc-import name="LoginModal" on-close="{{closeLogin}}" hint-size="100%,640px"></dc-import></div></div></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3000}}'>
+class Component extends DCLogic {
+  constructor(p){ super(p); this.state = { megaOpen: false, agree: false, err: false, sent: false }; }
+  componentDidUpdate(pp, ps) { ps = ps || {}; if (this.state.megaOpen && !ps.megaOpen && this._mega) this._mega.focus({ preventScroll: true }); if (this.state.mobOpen && !ps.mobOpen) { try { window.scrollTo({ top: 0 }); } catch (e) {} if (this._ov) this._ov.focus({ preventScroll: true }); } if (this.state.storeOpen && !ps.storeOpen && this._ov) this._ov.focus({ preventScroll: true }); }
+  componentWillUnmount() { if (this._onScroll) window.removeEventListener('scroll', this._onScroll); if (this._raf) cancelAnimationFrame(this._raf); clearTimeout(this._mt); }
+  componentDidMount() { this._lastY = window.scrollY || 0; this._onScroll = () => { if (this._raf) return; this._raf = requestAnimationFrame(() => { this._raf = 0; const y = window.scrollY || 0; const d = y - this._lastY; if (Math.abs(d) > 6) { const hide = d > 0 && y > 160; if (hide !== !!this.state.hdrHidden) this.setState({ hdrHidden: hide }); this._lastY = y; } if (y < 10 && this.state.hdrHidden) this.setState({ hdrHidden: false }); }); }; window.addEventListener('scroll', this._onScroll, { passive: true }); }
+  renderVals() {
+    return {
+      noSubmit: (e) => { if (e && e.preventDefault) e.preventDefault(); },
+      agree: !!this.state.agree, agreeInv: this.state.err && !this.state.agree ? 'true' : 'false',
+      showErr: !!this.state.err && !this.state.agree, sent: !!this.state.sent,
+      okCls: this.state.err && !this.state.agree ? 'kc-ok--err' : '',
+      toggleAgree: () => this.setState({ agree: !this.state.agree }),
+      send: () => { if (!this.state.agree) { this.setState({ err: true, sent: false }); const el = document.getElementById('kc-agree'); if (el) { el.focus(); el.scrollIntoView({ block: 'center', behavior: 'smooth' }); } } else this.setState({ sent: true, err: false }); },
+      nlNoop: (e) => { if (e && e.preventDefault) e.preventDefault(); },
+      megaOpen: this.state.megaOpen,
+      miniCls: this.state.miniClosed ? 'closed' : '', closeMini: () => this.setState({ miniClosed: true }), resetMini: () => { if (this.state.miniClosed) this.setState({ miniClosed: false }); },
+      loginOpen: !!this.state.loginOpen,
+      openLogin: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ loginOpen: true, megaOpen: false, mobOpen: false }); setTimeout(() => { try { const el = document.getElementById('lg-user'); if (el) el.focus(); } catch (x) {} }, 60); },
+      closeLogin: () => this.setState({ loginOpen: false }),
+      loginKey: (e) => { if (e.key === 'Escape') this.setState({ loginOpen: false }); },
+      storeOpen: !!this.state.storeOpen, openStore: () => this.setState({ storeOpen: true, megaOpen: false }), closeStore: () => this.setState({ storeOpen: false }),
+      mobOpen: !!this.state.mobOpen, mobClosed: !this.state.mobOpen, openMob: () => this.setState({ mobOpen: true }), toggleMob: () => this.setState({ mobOpen: !this.state.mobOpen }), closeMob: () => this.setState({ mobOpen: false }),
+      ovRef: (el) => { this._ov = el; }, ovKey: (e) => { if (e.key === 'Escape') this.setState({ storeOpen: false, mobOpen: false }); },
+      megaEnter: () => { clearTimeout(this._mt); if (!this.state.megaOpen) this._mt = setTimeout(() => this.setState({ megaOpen: true }), 120); },
+      megaLeave: () => { clearTimeout(this._mt); this._mt = setTimeout(() => { if (this.state.megaOpen) this.setState({ megaOpen: false }); }, 200); },
+      hdrCls: (this.state.hdrHidden && !this.state.megaOpen && !this.state.mobOpen && !this.state.storeOpen && !this.state.loginOpen) ? 'hidden' : '',
+      mobLabel: this.state.mobOpen ? 'Zavřít menu' : 'Menu',
+      toggleMega: () => { clearTimeout(this._mt); this.setState({ megaOpen: true }); },
+      closeMega: () => this.setState({ megaOpen: false }),
+      megaRef: (el) => { this._mega = el; },
+      megaKey: (e) => { if (e.key === 'Escape') { this.setState({ megaOpen: false }); } }
+    };
+  }
+}
+</script>
+</body>
+</html>

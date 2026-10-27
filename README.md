@@ -10,6 +10,7 @@ Exportováno z Claude artifactů „DSK Stavebniny — redesign e-shopu“ (Desi
 ```
 index.html                 homepage (kopie redesign/Main.html s <base href="redesign/">)
 prehled.html               přehled stránek, vrstev a design systému
+rozcestnik.html            rozcestník pro klienta – všechny stránky, popupy a modaly
 redesign/
   Main.html …              stránky a vrstvy návrhu (vygenerované, interaktivní)
   src/*.dc.html            zdrojové artboardy (originální formát z Claude Design)

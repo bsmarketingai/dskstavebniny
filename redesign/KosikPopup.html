@@ -21,16 +21,16 @@
 <div style="flex:1 1 280px;display:flex;flex-direction:column;gap:8px;min-width:0">
 <a href="Detail.html" style="font:700 17px/22px 'Exo 2', 'Trebuchet MS', sans-serif;color:#005980;text-decoration:none" style-hover="text-decoration: underline">Lepicí malta pro EPS a XPS, Arsanit Styramik THS-04G, 25 kg</a>
 <span style="display:flex;align-items:center;gap:8px;font:600 14px/20px 'Exo 2', 'Segoe UI', system-ui, sans-serif;color:#1B7F3B"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"> <path d="M5 12l5 5l10 -10"></path> </svg>Skladem 148 ks</span>
-<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><span style="font:400 15px/20px 'Exo 2', 'Segoe UI', system-ui, sans-serif;color:#5B646E">1 ks × 198,00 Kč</span><span style="font:700 22px/26px 'Exo 2', 'Trebuchet MS', sans-serif;color:#005980">198,00 Kč</span></div></div></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><span style="font:400 15px/20px 'Exo 2', 'Segoe UI', system-ui, sans-serif;color:#5B646E">{{qty}} ks × 198,00 Kč</span><span style="font:700 22px/26px 'Exo 2', 'Trebuchet MS', sans-serif;color:#005980">{{line}}</span></div></div></div>
 <div style="display:flex;flex-direction:column;gap:8px;padding-top:16px;border-top:1px solid #E5E7EB">
-<div style="display:flex;justify-content:space-between;font:400 15px/20px 'Exo 2', 'Segoe UI', system-ui, sans-serif;color:#5B646E"><span>Celkem bez DPH</span><span>6 521,49 Kč</span></div>
-<div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font:700 18px/24px 'Exo 2', 'Trebuchet MS', sans-serif">Celkem v košíku (6 položek)</span><span style="font:700 30px/34px 'Exo 2', 'Trebuchet MS', sans-serif;color:#005980">7 891,00 Kč</span></div></div>
+<div style="display:flex;justify-content:space-between;font:400 15px/20px 'Exo 2', 'Segoe UI', system-ui, sans-serif;color:#5B646E"><span>Celkem bez DPH</span><span>{{net}}</span></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font:700 18px/24px 'Exo 2', 'Trebuchet MS', sans-serif">Celkem v košíku ({{n}} {{nWord}})</span><span style="font:700 30px/34px 'Exo 2', 'Trebuchet MS', sans-serif;color:#005980">{{sum}}</span></div></div>
 <div class="freeDeliveryProgress" style="display:flex;flex-direction:column;gap:12px;padding:16px 20px;border-radius:6px;background:#E9F8EF;color:#1B7F3B">
 <span style="display:flex;align-items:center;gap:12px;font:700 15px/20px 'Exo 2', 'Trebuchet MS', sans-serif"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"> <path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path> <path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path> <path d="M5 17h-2v-11a1 1 0 0 1 1 -1h9v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5"></path> </svg>Do dopravy zdarma zbývá 200 Kč</span>
 <span class="freeDeliveryProgressTrack" aria-hidden="true" style="display:block;height:8px;border-radius:999px;background:#fff;overflow:hidden"><span class="freeDeliveryProgressFill" style="display:block;width:86%;height:100%;background:#1B7F3B"></span></span></div>
 <div style="display:flex;flex-wrap:wrap;gap:12px">
 <button type="button" onClick="{{close}}" style="flex:1 1 220px;display:flex;align-items:center;justify-content:center;gap:12px;height:52px;border:0;border-radius:6px;background:#F4F5F7;color:#003D57;font:700 16px/20px 'Exo 2', 'Trebuchet MS', sans-serif" style-hover="background: #E5E7EB"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6l6 6"></path></svg>Pokračovat v nákupu</button>
-<a href="#" class="cv" style="flex:1 1 220px;display:flex;align-items:center;justify-content:center;gap:12px;height:52px;border-radius:6px;background:#F59300;color:#002433;text-decoration:none;font:700 16px/20px 'Exo 2', 'Trebuchet MS', sans-serif" style-hover="background: #FFAE3D">Přejít k objednávce<svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6l-6 6"></path></svg></a></div>
+<a href="Kosik.html" class="cv" style="flex:1 1 220px;display:flex;align-items:center;justify-content:center;gap:12px;height:52px;border-radius:6px;background:#F59300;color:#002433;text-decoration:none;font:700 16px/20px 'Exo 2', 'Trebuchet MS', sans-serif" style-hover="background: #FFAE3D">Přejít k objednávce<svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6l-6 6"></path></svg></a></div>
 <section style="display:flex;flex-direction:column;gap:16px;padding-top:8px"><h3 style="margin:0;font:700 20px/26px 'Exo 2', 'Trebuchet MS', sans-serif;color:#005980">Zákazníci s tímto zbožím také kupují</h3>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px"><a href="Detail.html" style="display:flex;flex-direction:column;gap:8px;text-decoration:none;color:#1A1E23;min-width:0" style-hover="text-decoration: underline">
 <span style="display:block;padding:12px;border-radius:6px;background:#F4F5F7"><span style="display:block;position:relative;width:100%;aspect-ratio:1/1;overflow:hidden"><img src="img/5f0e1e3507cb03469a6ae7dff5321d86.jpg" alt="" style="position:absolute;top:0;left:-0%;width:900%;height:100%;max-width:none"></span></span>
@@ -48,7 +48,12 @@
 </script>
 <script type="text/x-dc-logic" data-dc="KosikPopup">
 class Component extends DCLogic {
-  renderVals() { return { close: () => { if (this.props.onClose) this.props.onClose(); } }; }
+  renderVals() {
+    const P = this.props, n = P.cartN ?? 6;
+    return { close: () => { if (P.onClose) P.onClose(); },
+      qty: P.qty ?? 1, line: P.line ?? '198,00 Kč', n, nWord: n === 1 ? 'položka' : (n >= 2 && n <= 4 ? 'položky' : 'položek'),
+      sum: P.cartSum ?? '7 891,00 Kč', net: P.cartNet ?? '6 521,49 Kč' };
+  }
 }
 </script>
 <script src="vendor/react.production.min.js"></script>

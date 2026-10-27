@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modal Přihlášení · DSK Stavebniny</title>
+<!-- styly: LoginModal -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&amp;display=swap"><style>body{margin:0}
+.lgm{width:100%;box-sizing:border-box;background:#fff;border-radius:8px;box-shadow:0 12px 32px rgba(0,36,51,0.18);font-family:'Exo 2','Segoe UI',system-ui,sans-serif;color:#1A1E23;padding:clamp(20px,5vw,32px);display:flex;flex-direction:column;gap:24px}
+.lg-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.lg-ht{display:flex;align-items:center;gap:14px}
+.lg-ic{display:flex;align-items:center;justify-content:center;width:44px;height:44px;flex:none;border-radius:6px;background:#005980;color:#fff}
+.lg-h{margin:0;font:700 26px/32px 'Exo 2','Trebuchet MS',sans-serif;color:#005980}
+.lg-sub{margin:2px 0 0;font:400 15px/20px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#5B646E}
+.lg-x{width:44px;height:44px;flex:none;margin:-6px -8px 0 0;border:0;border-radius:6px;background:transparent;color:#003D57;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.lg-x:hover{background:#EBF9FF}
+.lg-f{display:flex;flex-direction:column;gap:18px}
+.lg-fd{display:flex;flex-direction:column;gap:6px}
+.lg-l{font:600 15px/20px 'Exo 2','Trebuchet MS',sans-serif;color:#1A1E23}
+.lg-w{position:relative;display:flex}
+.lg-in{width:100%;box-sizing:border-box;height:48px;padding:0 14px 0 44px;border:1px solid #A2ABB8;border-radius:4px;background:#fff;font:400 16px/24px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#1A1E23;outline:none;transition:border-color .15s ease,box-shadow .15s ease}
+.lg-in::placeholder{color:#5B646E}
+.lg-in:focus{border-color:#007DB2;box-shadow:0 0 0 3px #CCF0FF}
+.lg-in--pw{padding-right:52px}
+.lg-li{position:absolute;left:14px;top:14px;color:#5B646E;pointer-events:none}
+.lg-eye{position:absolute;right:4px;top:4px;width:40px;height:40px;border:0;border-radius:4px;background:transparent;color:#003D57;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.lg-eye:hover{background:#EBF9FF}
+.lg-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px}
+.lg-cb{display:inline-flex;align-items:center;gap:10px;min-height:44px;font:500 15px/20px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#1A1E23;cursor:pointer}
+.lg-cb input{width:20px;height:20px;margin:0;accent-color:#003D57;cursor:pointer}
+.lg-a{display:inline-flex;align-items:center;min-height:44px;color:#007DB2;font:700 15px/20px 'Exo 2','Trebuchet MS',sans-serif;text-decoration:none}
+.lg-a:hover{color:#005980;text-decoration:underline;text-underline-offset:3px}
+.lg-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;height:52px;border:0;border-radius:6px;background:#F59300;color:#002433;font:700 17px/22px 'Exo 2','Trebuchet MS',sans-serif;cursor:pointer;transition:background-color .15s ease}
+.lg-btn:hover{background:#FFAE3D}
+.lg-new{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 16px;padding:16px 20px;border-radius:6px;background:#EBF9FF}
+.lg-new p{margin:0;font:600 15px/20px 'Exo 2','Segoe UI',system-ui,sans-serif;color:#003D57}
+.lg-new p span{display:block;font-weight:400;color:#1A1E23;margin-top:2px}
+.lg-reg{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border:1px solid #B2E8FF;border-radius:6px;background:#fff;color:#005980;text-decoration:none;font:700 15px/20px 'Exo 2','Trebuchet MS',sans-serif;white-space:nowrap}
+.lg-reg:hover{background:#F7FCFF;border-color:#80D9FF;color:#003D57}
+@media (prefers-reduced-motion:reduce){.lg-in,.lg-btn{transition:none}}
+#lgm .lg-w,#lgm .lg-w:focus-within{box-shadow:none!important;border-color:transparent!important;outline:0!important;z-index:auto!important}
+#lgm .lg-in:focus,#lgm .lg-in:focus-visible{outline:0!important;border-color:#007DB2!important;box-shadow:0 0 0 3px #CCF0FF!important}
+</style>
+<style>html{background:#E5E7EB}#dc-root{max-width:480px;margin:32px auto;background:#fff}}</style>
+</head>
+<body data-dc-root="LoginModal">
+<div id="dc-root"></div>
+<script type="text/x-dc-template" data-dc="LoginModal">
+
+<div class="lgm" id="lgm" role="dialog" aria-modal="true" aria-labelledby="lg-h">
+<div class="lg-hd"><div class="lg-ht"><span class="lg-ic"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path></svg></span><div><h2 id="lg-h" class="lg-h">Přihlášení</h2><p class="lg-sub">Přihlaste se ke svému zákaznickému účtu.</p></div></div>
+<button type="button" class="lg-x" onClick="{{close}}" aria-label="Zavřít přihlášení"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12"></path><path d="M6 6l12 12"></path></svg></button></div>
+<form class="lg-f" onSubmit="{{submit}}">
+<div class="lg-fd"><label class="lg-l" for="lg-user">Uživatelské jméno</label><span class="lg-w"><svg aria-hidden="true" class="lg-li" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path></svg><input class="lg-in" id="lg-user" name="username" type="text" autocomplete="username" placeholder="Vaše uživatelské jméno…"></span></div>
+<div class="lg-fd"><label class="lg-l" for="lg-pass">Heslo</label><span class="lg-w"><svg aria-hidden="true" class="lg-li" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z"></path><path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path><path d="M8 11v-4a4 4 0 1 1 8 0v4"></path></svg><input class="lg-in lg-in--pw" id="lg-pass" name="password" type="{{pwType}}" autocomplete="current-password" placeholder="Vaše heslo…"><button type="button" class="lg-eye" onClick="{{togglePw}}" aria-label="{{pwLabel}}" aria-pressed="{{pwShown}}"><sc-if value="{{pwHidden}}" hint-placeholder-val="{{true}}"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"></path></svg></sc-if><sc-if value="{{pwShown}}" hint-placeholder-val="{{false}}"><svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10.585 10.587a2 2 0 0 0 2.829 2.828"></path><path d="M16.681 16.673a8.717 8.717 0 0 1 -4.681 1.327c-3.6 0 -6.6 -2 -9 -6c1.272 -2.12 2.712 -3.678 4.32 -4.674m2.86 -1.146a9.055 9.055 0 0 1 1.82 -.18c3.6 0 6.6 2 9 6c-.666 1.11 -1.379 2.067 -2.138 2.87"></path><path d="M3 3l18 18"></path></svg></sc-if></button></span></div>
+<div class="lg-row"><label class="lg-cb"><input type="checkbox" name="remember">Trvalé přihlášení</label><a class="lg-a" href="#">Nevíte jméno nebo heslo?</a></div>
+<button type="submit" class="lg-btn">Přihlásit se<svg aria-hidden="true" style="flex:none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6l-6 6"></path></svg></button>
+</form>
+<div class="lg-new"><p>Jste tu poprvé?<span>Registrací získáte přehled objednávek a rychlejší nákup.</span></p><a class="lg-reg" href="#">Registrujte se</a></div>
+</div>
+</script>
+<script type="text/x-dc-logic" data-dc="LoginModal">
+class Component extends DCLogic {
+  constructor(p){ super(p); this.state = { pw: false }; }
+  renderVals() {
+    const pw = !!this.state.pw;
+    return {
+      close: () => { if (this.props.onClose) this.props.onClose(); },
+      submit: (e) => { if (e && e.preventDefault) e.preventDefault(); },
+      togglePw: () => this.setState({ pw: !pw }),
+      pwType: pw ? 'text' : 'password', pwShown: pw, pwHidden: !pw,
+      pwLabel: pw ? 'Skrýt heslo' : 'Zobrazit heslo'
+    };
+  }
+}
+</script>
+<script src="vendor/react.production.min.js"></script>
+<script src="vendor/react-dom.production.min.js"></script>
+<script src="js/dc-runtime.js"></script>
+</body>
+</html>
