@@ -1,3 +1,3 @@
 # FooterTiles
 
-Dlaždice na tmavé patičce (`primary-900`, dlaždice `primary-800`): rychlý kontakt `dsk-tile` (oranžová ikona a číslo), doprava `dsk-tile` s popisem `__d`, karta prodejny `dsk-branch` a platební logo `dsk-pay` (bílý podklad 88 × 48). Oranžová je tu povolená jako „zavolejte“ konverze. Loga plateb ve finále jako originální SVG.
+Patička `primary-900`. Rychlé kontakty `dsk-tile` (dlaždice `primary-800`, `radius-md`, oranžová ikona a číslo), karta prodejny `dsk-branch` (padding 24, název 22/28, adresa `primary-200`, telefon oranžově, odkaz Mapa → Kontakty), platební logo `dsk-pay` (bílý podklad 88 × 48). Oranžová je tu povolená jako „zavolejte“. Pod 820 px jsou bloky akordeonem (`dsk-acc--dark`) a „Nejblíž vám“ pod sebou.

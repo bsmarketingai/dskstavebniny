@@ -16,9 +16,15 @@ Sedm pojmenovaných breakpointů XXS–XXL, mobile-first (`min-width`). Návrh z
 
 ## Chování hlavičky
 
-- XXS–S: logo, ikony (AI asistent, profil, košík), hamburger; vyhledávání na celou šířku pod lištou. Kategorie v šuplíku.
-- M: vyhledávací pole se vejde do lišty, kategorie stále v šuplíku.
-- L–XXL: utility lišta se servisními odkazy, kategoriová lišta s tlačítkem Sortiment (megamenu) a top kategoriemi.
+- XXS–S (pod 820 px): utility lišta (prodejna, Otevřeno, ikona kontaktů), hlavní lišta s logem, ikonami Porovnat / Přihlásit / Košík (40 px, pod 420 px 36 px, bez mezer) a tmavým hamburgerem 44 px; pod ní vyhledávání s lupou a AI asistent jako ikona. Kategorie a Služby / Články v mobilním menu (vlastní scroll, výška max. `100dvh − 172px`). Klepnutí na košík otevře popup mini košíku.
+- M: vyhledávání se vejde do hlavní lišty, kategorie stále v menu.
+- L–XXL: tři pásy — utility, hlavní lišta s popisky ikon a cenou v košíku, kategoriová lišta s tlačítkem Sortiment (megamenu), Služby ▾, Články ▾ a dalšími odkazy.
+
+## Další prahy použité na stránkách
+
+- **820 px** — šipky karuselů pod produkty, H2 22/28, kroky košíku zkrácené, lišta košíku ve dvou řádcích, tabulky jako karty.
+- **640 px** — dlaždice materiálů (Řezání oceli) jako řádky, našeptávač s kategoriemi pod produkty.
+- **1150 px** — tabulka košíku plná (pod tím koš vpravo v kartě položky).
 
 ## CSS
 

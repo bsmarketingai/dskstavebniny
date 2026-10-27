@@ -1,56 +1,53 @@
 # DSK Stavebniny
 
-Design systém pro redesign e-shopu dskstavebniny.cz (dříve „Design System“). Rozsahy breakpointů XXS–XXL a maximální šíře webu (1560 px obsahu) jsou v sekci Breakpointy. Pojmenování komponent, tříd a tokenů podle platformy BSSHOP je v sekci Pojmenování (naming), informační architektura e-shopu v sekci Struktura. Vychází ze současné barevnosti webu (DSK modrá, tmavě modrá patička, oranžové nákupní akce) a zpřísňuje ji tak, aby všechny texty splnily kontrast WCAG AA.
+Design systém pro redesign e-shopu dskstavebniny.cz. **Srovnaný s finálními stránkami redesignu 27. 10. 2026** (homepage, sortiment, kategorie, detail, vyhledávání, porovnání, košík ve 3 krocích, kontakty, poptávka, dodavatelé, blog, služby NZU a Řezání oceli, 404 a všechny vrstvy). Kde se stránky a systém lišily, platí stránky; rozpory, které stojí za sjednocení na webu, jsou v sekci Audit.
+
+Rozsahy breakpointů XXS–XXL a maximální šíře (1560 px obsahu) jsou v sekci Breakpointy, rozestupy a výšky prvků v sekci Rozestupy. Pojmenování podle platformy BSSHOP je v sekci Pojmenování, informační architektura e-shopu v sekci Struktura.
 
 ## Hlas a obsah
 
-Mluvíme jako zkušený prodavač na prodejně: věcně, česky, bez marketingových frází. Tykat ne, vykat ano. Tlačítka říkají přesně, co se stane — „Do košíku“, „Přejít k objednávce“, „Zobrazit 128 produktů“, nikdy „Odeslat“ nebo „OK“. Čísla píšeme s nezlomitelnou mezerou (42 000 produktů, 220,58 Kč). Cenu vždy uvádíme s DPH velkým písmem a pod ní cenu bez DPH (`caption`, `secondary-600`) — řada zákazníků jsou firmy.
+Mluvíme jako zkušený prodavač na prodejně: věcně, česky, bez marketingových frází. Vykáme. Tlačítka říkají přesně, co se stane — „Do košíku“, „Pokračovat ke kontaktním údajům“, „Zobrazit všechny produkty“, nikdy „Odeslat“ nebo „OK“. Čísla píšeme s nezlomitelnou mezerou (42 000 produktů, 220,58 Kč). Cena je vždy s DPH velkým písmem a pod ní cena bez DPH — řada zákazníků jsou firmy. Skladovost vždy dvěma řádky: vybraná prodejna a součet na 9 prodejnách.
 
 ## Vizuální základ
 
-**Barva.** Paleta je převzatá 1:1 z Figma stylů: škály `main` (oranžová), `primary` (modrá), `secondary` (modrošedá) a `neutral` (šedá), každá 50–900. `primary-500` je identita: velké plochy (hlavní lišta, newsletter). Malý text na ní je vždy `primary-900` (5,4:1); bílá je na ní jen logo (3,0:1 neprochází). Tlačítka a odkazy s bílým textem `primary-600` (4,6:1), nadpisy a ceny `primary-700`, tmavé plochy (kategoriová lišta, patička, Hledat, košík) `primary-800`, utility lišta `primary-900`. Tint `primary-100`, podklad sekcí `primary-50`. `main` je **konverzní barva** (token `conversion` = `main-500`, hover `conversion-hover` = `main-600`, text `conversion-ink` = `primary-900`, nikdy bílý). Patří jen na konverzní cestu: Do košíku, Koupit, Přejít k objednávce, tlačítka pokladny a AI asistent, který stojí přímo u vyhledávání (vede k výběru a nákupu, chceme ho zviditelnit). Košík v hlavičce je tmavý (`primary-800`, bílý text) s oranžovým počítadlem; Porovnat a účet jsou bílé dlaždice s ikonou a textem `primary-800`. Na `primary-500` tak všechny ovládací prvky hlavičky stojí na bílé nebo tmavé ploše s kontrastem 11,6:1, nikdy přímo na modré. V patičce (tmavé `primary-900`) je podle návrhu oranžová i pro telefonní čísla, ikony kontaktů, otevírací dobu a odkazy v textu Doprava — tam funguje jako „zavolejte / zastavte se“, tedy také konverze. Všechna počítadla a notifikace (košík, porovnání, počet aktivních filtrů) jsou jednotně `main-500` s textem `primary-900`, kulatá, výška 20 px, písmo 11 px tučně. Nic jiného oranžové není — štítky akcí, ikony v patičce ani fokus. Díky tomu oko na každé stránce okamžitě najde další krok k nákupu. Text a UI ze škály `secondary`: text `secondary-900`, popisky `secondary-600`, hairline `secondary-200`, šedé podklady `secondary-100`. Červená `danger` a zelená `success` ve Figma paletě nejsou, držíme je jako stavové barvy mimo škály. Pozor: `main-50` je ve Figmě zelený a `secondary-50` růžový — používáme je jako podklad úspěchu a chyby, ale chce to ověřit. Přechodové styly `neutral 100-0` a `1000-0` (do průhledna) nejsou tokeny, řeší se v CSS jako gradient.
+**Barva.** Paleta je z Figma stylů: škály `main` (oranžová), `primary` (modrá), `secondary` (modrošedá) a `neutral`. Hlavička má tři pásy: utility lišta `primary-900`, hlavní lišta `primary-500` (DSK modrá — malý text na ní `primary-900`, bílá jen logo a popisky ikon), kategoriová lišta `primary-600` s bílými odkazy a tlačítkem Sortiment na `primary-300`. Tmavé plochy: `primary-900` (hero, patička, karty hlavních kategorií, banner kalkulačky) a `primary-800` (ovládací tmavé prvky, newsletterový box, promo bannery, plovoucí lišta košíku). Nadpisy a ceny `primary-700`, odkazy a ghost tlačítka `primary-600`, světlé pásy `primary-50`, tinty a fokus `primary-100`.
 
-**Typografie.** Jedna rodina pro celý web: `Exo 2`, kterou web už používá. **Nejtěžší řez je Bold (700) — ExtraBold (800) ani Black (900) nepoužíváme, ani na nadpisy a ceny.** Nadpisy, navigace, tlačítka a ceny ve vahách 600–700 (`display`), odstavce a popisy 400–500 (`body`). Hierarchii nese velikost, ne extra tučný řez.
+`main` je **konverzní barva** (`conversion` = `main-500`, hover `main-400`, text `conversion-ink` = `primary-900`, nikdy bílý): Do košíku, Koupit, Přejít k objednávce, Pokračovat v košíku, AI asistent. Dál ji smíme použít jen tam, kde vede ke kontaktu nebo odběru — telefony v patičce, Přihlásit k odběru newsletteru, kalkulačka spotřeby, počítadla a štítek kampaně v hero. Nic jiného oranžové není. Stavové barvy mimo Figma škály: `danger` (Výprodej, přeškrtnutá cena, Zrušit vše, koš, povinné pole) a `success` (skladem, Zdarma, Otevřeno). `nzu-green` patří jen stránce Nová zelená úsporám (barva z banneru programu).
 
-**Bez dekorací.** Systém nepoužívá žádné dekorativní prvky — žádné linky, metr ani ornamenty pod nadpisy. Hierarchii nese typografie, barva a rozestupy.
+**Typografie.** Jedna rodina `Exo 2`. **Nejtěžší řez je Bold (700)** — ExtraBold ani Black nepoužíváme. H1 40/44 (detail 36/42, mobil 28/34), H2 28/34 (mobil 22/28), nadpis bloku 24/30, nadpis v banneru 22/28, hero 56/60. Nadpisy, navigace, tlačítka a ceny 600–700, text 400–500. Hierarchii nese velikost. Verzálky jen u popisku „KROK 1“ v košíku.
 
-**Tvar.** Rádiusy jen v rozmezí 4–8 px, spíš menší: `radius-sm` (4 px) pro ovládací prvky, štítky a čipy, `radius-md` (6 px) pro karty a dlaždice, `radius-lg` (8 px) pro hero a plovoucí vrstvy. Vnořený prvek má vždy menší rádius než jeho rodič. Plně kulaté (`radius-round`) jsou jen počítadla a stavové tečky. **Kulatá tlačítka nepoužíváme nikde** — ani ikonová (šipky karuselů, šipky v kartách, hero); mají stejný rádius jako ostatní tlačítka. Karty nemají stín, odděluje je `secondary-200`; `shadow-pop` mají jen plovoucí vrstvy.
+**Bez dekorací.** Žádné linky ani „metr“ pod nadpisy. Jediný doplněk nadpisu je **ikona ve čtverci** 44 × 44 px, `radius-md`, podklad `primary-700`, bílá ikona (Časté dotazy, Způsob dopravy, karty formuláře, sekce služeb, dialogy).
 
-**Rozestupy.** Škála na 4 px (2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80), nic mimo ni. Okraj stránky, gutter, mezera mezi sekcemi, padding pásů a karet jsou responzivní proměnné — tabulka a pravidlo blízkosti v sekci Rozestupy.
+**Tvar.** `radius-sm` 4 px — pole, výběr, čipy, štítky, číselník, stránkování. `radius-md` 6 px — **všechna tlačítka**, ikony u nadpisů, karty produktů, dlaždice, volby, kroky košíku. `radius-lg` 8 px — bannery, karty kategorií, karta formuláře, tabulka, dialogy. Vnořený prvek přilepený k okraji rodiče přebírá jeho rádius (číslo kroku 5 0 0 5 v kroku s 6 px). Kulaté jsou jen počítadla a stavové tečky. Karty bez stínu; stín jen plovoucí vrstvy (`shadow-pop`), lišta košíku (`shadow-bar`), toast a karta při hoveru.
+
+**Tlačítka.** Role, ne barvy (karta Button). Sekundární tlačítka jsou **jemná**: bílá, 1 px `primary-200`, text `primary-700` — tlusté 2 px obrysy jen u „Načíst dalších 24“. Tlačítka vedle sebe mají stejnou výšku. Šipky jsou vždy jednoduchý chevron.
+
+**Formuláře.** Popisek nad polem, pole 48 px, rámeček `secondary-400`, `radius-sm`; fokus = rámeček `primary-600` + prstenec 3 px `primary-100`.
+
+**Rozestupy.** Škála na 4 px; okraj, gutter, mezera sekcí, padding pásů a karet jsou responzivní proměnné (sekce Rozestupy).
+
+## Skladba stránky
+
+Hlavička → drobečky (13/18) → H1 → obsah → **Časté dotazy** (pás `primary-50`) → **newsletter** → patička. Výjimky: 404 (bez FAQ a newsletteru) a košík (bez FAQ, newsletteru i patičky — posledním prvkem je plovoucí lišta). Používáme hotové komponenty z jiných stránek: produktová karta je vždy `pcard`, karusely mají stejnou navigaci, stránkování a dlaždice podkategorií jsou jako ve výpisu kategorie, přepínač sekcí jako panel „Sekce“. Na mobilu nic horizontálně neroluje kromě karuselů (ty jdou až k okraji); seznamy a tabulky se skládají do karet. Hover na mobilu nefunguje — vše musí jít kliknutím (mini košík se na mobilu otevírá klepnutím).
 
 ## Ikonografie
 
-Sada **Tabler Icons** (outline), verze **v3.24.0** z github.com/tabler/tabler-icons, MIT. Velikost 20 px v UI, 24 px v hlavičce, 16 px ve štítcích; `stroke-width` 1.75; barva `currentColor`. Ikony vkládáme jako inline SVG, aby přebíraly barvu textu. **Šipky:** v tlačítkách, odkazech a karuselech používáme vždy chevrony (`chevron-right`, `chevron-left`), nikdy `arrow-right` / `arrow-left`. Výjimka: tlačítko AI asistent má vlastní ikonu `assets/Icons/ai-asistent.svg` (bublina s jiskrami, dodaná klientem), převedenou na `currentColor`; v tlačítku 22 px, tah 2. Mapování hlavních kategorií e-shopu: Stavebniny `wall`, Cenově výhodné produkty `pig-money`, Kotvení a spojování vlastní šroub `assets/Icons/sroub.svg` (Tabler šroub nemá), Nářadí `hammer`, Stavební chemie `flask`, Barvy a nátěry `paint`, Bydlení a zahrada `plant`, Pracovní oděvy a obuv `shirt`, Poukazy `gift`, Výprodej `tag` (červeně).
+Sada **Tabler Icons** (outline) v3.24.0, MIT. 20 px v UI, 24 px v hlavičce a ve čtverci u nadpisu, 16 px ve štítcích a skladovosti; `stroke-width` 1.75 (check 2.25–2.5); `currentColor`, inline SVG. Šipky v tlačítkách, odkazech a karuselech vždy `chevron-right` / `chevron-left`. Vlastní ikony: AI asistent `assets/Icons/ai-asistent.svg`, šroub `assets/Icons/sroub.svg` (Kotvení a spojování). Mapování kategorií: Stavebniny `wall`, Cenově výhodné `pig-money`, Nářadí `hammer`, Stavební chemie `flask`, Barvy a nátěry `paint`, Bydlení a zahrada `plant`, Pracovní oděvy `shirt`, Poukazy `gift`, Výprodej `tag` (červeně).
 
 ## Logo
 
-`assets/Logo/logo-dsk-white.png` — originální bílé logo od klienta s průhledným pozadím (324 × 132 px, ořezané na obrys). Používá se jen na `primary-500` nebo tmavších modrých; v hlavičce ve výšce 44 px. Ochranná zóna kolem loga je aspoň výška písmen „STAVEBNINY“. Barevná verze na bílé a vektor (SVG) zatím chybí.
+`assets/Logo/logo-dsk-white.png` — bílé logo od klienta s průhledným pozadím (324 × 132 px). Jen na `primary-500` a tmavších modrých; v hlavičce 44 px (mobil 36 px). Ochranná zóna aspoň výška písmen „STAVEBNINY“. Barevná verze a SVG zatím chybí.
 
-## Komponenty (zatím popsané v návrhu, ne v kódu)
+## Komponenty
 
-Hlavička (utility lišta / hlavní lišta / kategoriová lišta), megamenu, karta produktu, dlaždice kategorie, štítky (Výprodej, Novinka, Akce), skladovost, množství + Do košíku, drobečková navigace, šuplík filtru, popup Vložili jste do košíku, karta prodejny, patička.
+Třídy v `components/bundle.css` (prefix `dsk-`, jen tokeny) a karta s ukázkou ke každé:
 
+- **Základ:** Button, Badge, FormControls
+- **E-shop:** ProductCard, PriceStock (cena + skladovost), QuantityStepper, CategoryTile
+- **Košík:** CheckoutSteps, OptionList, CartBar, FormCard
+- **Obsah:** SectionHeading, PromoBanner, DataTable, Faq, Newsletter, Usp
+- **Zpětná vazba:** Notice, InfoBars, Toast
+- **Navigace a hlavička:** HeaderActions, Dropdown, Navigation, Accordion
+- **Vrstvy a patička:** Dialog, FooterTiles
 
----
-
-## Consuming this system (generated — do not edit)
-
-Every path named below is under `project/` in this design system: read `project/api/tokens.md`, not `api/tokens.md`.
-
-This system ships tokens and assets, no components: take colours, type and fonts from the tokens card below for any page, deck or mock-up; a Slides deck or Design canvas also takes `tokens.json` by file path (that type’s SKILL.md says how).
-
-**Read, per thing:** token values: `api/tokens.md`; stored assets and their paths: `api/assets/<Group>.md`. After this README, fetch the cards and fonts you need in ONE message as parallel calls — none depends on another.
-
-**Two rules.** Before you use a thing — a component, a token group, an icon, an asset — read its card from the index below; a value you did not read from a card is a guess. `tokens.json`, `manifest.json` and `design-system.json` are sources for tools: hand them over. `SKILL.md` and `artifact-type/` beside them are authoring guidance, not needed to consume the system.
-
-## Index (generated — do not edit)
-
-**Tokens**
-
-- `api/tokens.md` — Every token: palette, type, spacing, radius, shadow, breakpoint, size. (6.6k)
-
-**Icons and assets**
-
-- `api/assets/Logo.md` — 1 file, by asset id. (0.7k)
-- `api/assets/Icons.md` — 1 file, by asset id. (0.7k)
-- `api/assets/Other.md` — 20 files, by asset id. (2.0k)
+Na stránkách prototypu mají komponenty vlastní krátké třídy (`pcard`, `stk`, `ko-*`, `kf-*`, `fq`, `nl`…); mapování je v kartách a v sekci Audit.

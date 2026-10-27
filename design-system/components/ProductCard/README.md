@@ -1,7 +1,7 @@
 # ProductCard
 
-Karta produktu ve výpisu i karuselu — layout **C (stacked)**, platí pod 1000 px i v mřížkách na desktopu. Pořadí: obrázek se štítky → název (max. 2 řádky) → krátký popis (od 550 px) → skladovost → cena s DPH a bez DPH → číselník + Do košíku. Celá karta nemá stín; `secondary-200` rámeček, `radius-md`.
+Karta produktu ve výpisu i karuselech (`article.pcard` na stránkách) — layout **C (stacked)**. Pořadí: obrázek se štítky (pod sebou vlevo nahoře) → název (700 15/20, max. 3 řádky) → krátký popis (`secondary-600`) → skladovost `dsk-stk` → cena s DPH s jednotkou „/ ks“, přeškrtnutá cena vpravo, cena bez DPH → číselník + čtvercové Do košíku. Rámeček `secondary-200`, `radius-md`, padding těla 16. Stejná karta je ve všech karuselech (homepage, detail, košík) — nevymýšlet jiné.
 
-Layouty **B (compact block, 1000–1149 px)** a **A (full table, ≥1150 px)** z Master Design Systemu zatím nejsou navržené.
+**Hover:** karta se zvedne o 6 px s měkkým stínem (300 ms) a název se podtrhne. Karusel má nahoře 8 px rezervu, aby se zvednutá karta neořízla. Bez hoveru karty stín nemají. Obsah karty nebalit do dalšího `<article>` (globální hover).
 
-**Hover:** karta se zvedne o 6 px a dostane měkký stín (300 ms ease tam i zpět) a název se podtrhne; rámeček se nemění. S `prefers-reduced-motion` bez pohybu. Karusel má nahoře 8 px rezervu, aby se zvednutá karta neořízla. Jinak karty stín nemají.
+Layouty B (1000–1149 px) a A (≥ 1150 px, tabulka) z Master Design Systemu nejsou navržené — výpis používá C i na desktopu (4 sloupce vedle stromu kategorií).

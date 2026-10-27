@@ -42,4 +42,12 @@ Pět rozestupů se mění s breakpointem; v CSS jsou to proměnné na `:root`.
 
 ## Výšky ovládacích prvků
 
-`control-sm` 32 px jen pro čipy, `control-md` 44 px je výchozí (minimální dotyková plocha), `control-lg` 52 px pro hlavní akci v panelu. Vnitřní vodorovný padding tlačítek je `space-4` (16), u ikonových tlačítek se šířka rovná výšce.
+| Token | Výška | Kde |
+|---|---|---|
+| `control-sm` | 32 px | čipy filtrů, Zrušit vše |
+| `control-md` | 44 px | výchozí: tlačítka, číselník, záložky, stránkování, šipky karuselu, řazení, ikona u nadpisu |
+| `control-field` | 48 px | formulářová pole, výběr, newsletter, Načíst dalších 24, vyhledávání v hlavičce (`header-bar`) |
+| `control-lg` | 52 px | hlavní akce (Koupit, Přejít k objednávce, hero), šipky karuselu a lišta košíku na mobilu |
+| `control-xl` | 64 px | Zpět a Pokračovat v plovoucí liště košíku, krok košíku |
+
+Vodorovný padding tlačítek 16 px (velká 24 px), ikonová tlačítka jsou čtverec. Tlačítka vedle sebe mají vždy stejnou výšku.

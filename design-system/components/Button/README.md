@@ -1,17 +1,20 @@
 # Button
 
-Všechna tlačítka e-shopu. Varianta říká, jakou roli akce má, ne jakou má barvu.
+Všechna tlačítka e-shopu. Varianta říká roli akce, ne barvu. **Všechna mají `radius-md` (6 px)**, tlačítka vedle sebe mají stejnou výšku, šipka je vždy jednoduchý chevron.
 
-| Třída | Kdy |
-|---|---|
-| `dsk-btn--conversion` | jen konverzní cesta: Do košíku, Koupit, Přejít k objednávce, AI asistent |
-| `dsk-btn--primary` | hlavní nekonverzní akce: Hledat, Přihlásit k odběru, Nastavit jako svoji prodejnu, Filtrovat |
-| `dsk-btn--secondary` | potvrzení v panelu: Zobrazit 128 produktů |
-| `dsk-btn--neutral` | návrat a zavření: Pokračovat v nákupu, ikona zavřít |
-| `dsk-btn--outline` | doplňková akce na bílé: Načíst dalších 24 |
-| `dsk-btn--danger` | mazání: Zrušit filtry |
-| `dsk-btn--ghost` | textová akce s ikonou: Info o prodejně, Celý popis |
+| Třída | Kdy | Příklad na webu |
+|---|---|---|
+| `dsk-btn--conversion` | konverzní cesta a „zavolejte / přihlaste se k odběru“ | Do košíku, Koupit, Přejít k objednávce, Pokračovat, AI asistent, Přihlásit (newsletter), Spočítat spotřebu |
+| `dsk-btn--primary` | tmavá ovládací akce (`primary-800`) | Hledat, Filtrovat, vybraná záložka, šipka Další v karuselu |
+| `dsk-btn--secondary` | posun dál ve výpisu (`primary-600`) | Další ve stránkování |
+| `dsk-btn--soft` | jemné sekundární: bílé, 1 px `primary-200`, text `primary-700` — nikdy tlusté 2 px obrysy | Máte účet? Přihlaste se, Registrujte se, Zpět (světlá lišta) |
+| `dsk-btn--outline` | jediné 2 px obrysové, 48 px | Načíst dalších 24 |
+| `dsk-btn--neutral` | návrat a zavření v popupu | Pokračovat v nákupu |
+| `dsk-btn--ghost` | textový odkaz s chevronem, hover podklad `primary-50` | Celý sortiment, Celá kategorie, Všechny novinky |
+| `dsk-btn--danger` | odebrání (text nebo ikona červeně) | Zrušit vše, koš v košíku |
+| `dsk-btn--on-dark` | hlavní akce na tmavé ploše (bílé, text `primary-700`) | Zobrazit akci (hero), Prohlédnout nabídku, Zobrazit kategorii |
+| `dsk-btn--on-dark-outline` | vedlejší akce na tmavé ploše (1 px bílá 50 %) | Spočítat spotřebu (hero), Zpět k nákupu (lišta košíku), telefon v NZU |
 
-Velikosti `--sm` 32, výchozí 44, `--lg` 52 px; `--icon` = čtverec. Na obrazovce je nejvýš jedna velká konverzní akce. Ikonové tlačítko má vždy `aria-label`.
+Výšky: `--sm` 32, výchozí 44, `--field` 48 (vedle pole), `--lg` 52, `--xl` 64 (lišta košíku); `--icon` = čtverec. Dvouřádkový popisek `dsk-btn__two` (Pokračovat / ke kontaktním údajům). Na obrazovce je nejvýš jedna velká konverzní akce. Ikonové tlačítko má vždy `aria-label`.
 
-**Hover:** konverzní se zesvětlí (`main-400`, kontrast 8,8:1), stisknuté ztmavne (`main-600`); tmavá tlačítka zesvětlí o krok (`primary-700`); světlá a obrysová dostanou podklad `primary-50`. Hover nikdy nesnižuje kontrast textu. Na plátně jsou hovery zapsané atributem `style-hover`.
+**Hover:** konverzní se zesvětlí na `main-400` (8,8:1), stisknuté `main-600`; tmavá zesvětlí o krok (`primary-700`); světlá dostanou `primary-50`. Hover nikdy nesnižuje kontrast. Fokus: 3 px `primary-600`, odsazení 2 px.

@@ -1,5 +1,5 @@
 # SectionHeading
 
-Nadpis sekce (`h2`, `primary-700`, 28 px, na XXS–XS 22 px) bez jakékoli dekorace pod sebou — pruh „metr“ (`dsk-ruler`) byl zrušen a už se nepoužívá. Vpravo volitelně šipky karuselu nebo odkaz „Celý sortiment“.
+Nadpis sekce `h2` (28/34, `primary-700`; pod 820 px 22/28) bez dekorace pod sebou. Volitelně **ikona ve čtverci** `dsk-hic`: 44 × 44 px, `radius-md` (6 px, jako tlačítka), podklad `primary-700` (barva nadpisu), bílá ikona 24 px — Časté dotazy, Způsob dopravy, Kontaktní údaje, Kde řežeme, dialogy. Kulaté ani světlé ikony u nadpisů nepoužíváme. Pod nadpisem volitelný perex `dsk-shead__sub` (`secondary-600`).
 
-**Karusel — ovládání:** šipky posouvají o šířku viditelné části (plynule). Na začátku je šipka doleva neaktivní, na konci šipka doprava (šedý podklad `secondary-100`, ikona `secondary-400`, `aria-disabled`). **Pod 820 px jsou šipky pod produkty, ne v nadpisu** — vždy zarovnané doprava, 52 px, aby se daly ovládat palcem. Toto pravidlo platí pro všechny karusely v projektu.
+**Karusel:** vpravo ghost odkaz („Celý sortiment“, „Celá kategorie“, „Všechny novinky“) a šipky `dsk-carbtn` 44 px — Předchozí bílá s rámečkem, Další `primary-800`, bez počítadla a teček. Neaktivní šipka: `secondary-100`, ikona `secondary-400`, `aria-disabled`. Šipky posouvají o šířku viditelné části. **Pod 820 px** jsou odkaz i šipky v řádku `dsk-carnav` pod produkty: odkaz vlevo, šipky 52 px vpravo (palec). Platí pro všechny karusely.

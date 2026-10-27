@@ -1,3 +1,3 @@
 # Navigation
 
-Drobečková navigace `dsk-crumbs` (celá cesta stromem, poslední položka bez odkazu), záložky detailu `dsk-tabs` (Popis / Parametry / Podrobnosti, vybraná tmavě modrá) a stránkování `dsk-pager` (44 px, aktuální stránka tmavě modrá, Další jako sekundární tlačítko). Nad stránkováním je vždy „Načíst dalších 24“ (`dsk-btn--outline`).
+Drobečková navigace `dsk-crumbs` (13/18, odkazy `primary-600`, aktuální stránka `secondary-600`, domeček na začátku, oddělovač chevron). Záložky `dsk-tabs` (44 px, `radius-md`, vybraná `primary-800`). Stránkování `dsk-pager`: čísla 44 px bez rámečku, aktuální `primary-800`, vpravo „Další“ jako `dsk-btn--secondary`; nad ním vždy „Načíst dalších 24“ (`dsk-btn--outline`). Postranní strom kategorií `dsk-tree` s tmavou hlavičkou „Kategorie e-shopu“, nad ním rychlé odkazy `dsk-quick` (Akce, Cenově výhodné, Unikátní, Top).

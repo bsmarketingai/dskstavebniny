@@ -1,50 +1,66 @@
 # Audit komponent
 
-Audit návrhu e-shopu (homepage, výpis kategorie, detail, megamenu, mobilní menu, mini košík, popup košíku, výběr prodejny, filtr, patička) — co se opakuje a jestli to má komponentu. Stav k 22. 10. 2026.
+Srovnání design systému s finálními stránkami redesignu (stav 27. 10. 2026): 18 stránek + 8 vrstev. Hodnoty byly změřeny na vykreslených stránkách (computed styles), ne odhadnuty.
 
-## Hotové komponenty
+## Co se v systému změnilo podle stránek
 
-Všechny mají třídy v `components/bundle.css` (prefix `dsk-`, jen tokeny, žádné pevné hodnoty) a kartu s ukázkou.
-
-| Opakuje se | Kde | Komponenta |
+| Oblast | Dříve v systému | Na stránkách (platí) |
 | --- | --- | --- |
-| tlačítka 7 rolí, 3 velikosti | všude | Button |
-| štítky, počítadla, stav prodejny | karty, hlavička, patička, modal | Badge |
-| vyhledávání, pole, výběr, checkbox, čip | hlavička, filtr, newsletter, detail | FormControls |
-| číselník + Do košíku | karta, detail | QuantityStepper |
-| cena s/bez DPH, sleva, skladovost | karta, detail, mini košík, popup | PriceStock |
-| karta produktu | HP karusely, výpis, související, alternativní | ProductCard |
-| dlaždice podkategorie, karta sortimentu | HP, výpis, megamenu | CategoryTile |
-| nadpis sekce + šipky | HP, detail | SectionHeading |
-| drobečky, záložky, stránkování | výpis, detail | Navigation |
-| akordeon | detail, filtr, patička, mobilní menu | Accordion |
-| nejbližší prodejna, doprava zdarma | patička, modal, popup | InfoBars |
-| kontakt, prodejna, doprava, platby | patička | FooterTiles |
-| výhoda | pás Proč nakupovat | Usp |
-| modal, popover, šuplík | popupy, filtr, prodejny | Dialog |
-| ikony v hlavičce | hlavička | HeaderActions |
+| Rádius tlačítek | 4 px | **6 px** (`radius-md`) — jako čtverec ikony u nadpisu |
+| Sekundární tlačítko | `primary-600` plné / 2px obrys | jemné: bílé, 1 px `primary-200`, text `primary-700` (`--soft`) |
+| Tlačítka na tmavé ploše | — | `--on-dark` (bílé) a `--on-dark-outline` (1 px bílá 50 %) |
+| Formulářové pole | 44 px, rámeček `secondary-200`, prstenec 2 px | 48 px, rámeček `secondary-400`, label nad polem, prstenec 3 px `primary-100` |
+| Skladovost | jeden řádek „Skladem 5 258 ks“ | dva řádky: prodejna + součet na 9 prodejnách (`dsk-stk`) |
+| Cena v kartě | 24/28, 800 | 22/26, 700 + jednotka „/ ks“ |
+| H1 | 44/48, 800 | 40/44, 700 (detail 36/42, mobil 28/34) |
+| Nadpis sekce | bez ikony | volitelně ikona ve čtverci 44 px `primary-700` |
+| Karusel | šipky v nadpisu | + ghost odkaz; pod 820 px odkaz i šipky v řádku pod karuselem |
+| Karta hlavní kategorie | bílá s ikonou | tmavá `primary-900` s fotkou (`dsk-hcard`) |
+| Pás výhod | ikony na `primary-50` | bílý pás s čísly a svislými linkami |
+| Newsletter | pás `primary-500` | tmavý box `primary-800` na pásu `primary-50` |
+| Hlavička | 2 pásy | 3 pásy: utility `primary-900`, hlavní `primary-500`, kategoriová `primary-600` |
+| Rozbalovací menu | jen Články | Služby i Články, hover `primary-100` |
+| Stav prodejny | plný zelený štítek | zelená tečka + text |
 
-## Sjednoceno během auditu
+## Nové komponenty
 
-- Počítadla měla tři různé styly → jeden `dsk-counter` (oranžový).
-- Ikona košíku byla dvojí → všude Tabler `truck-loading`.
-- Ikony dopravy se lišily mezi patičkou, hero a pásem výhod → všude `car-crane` a garáž.
-- Ikona mínus jako čára s nulovou výškou se nevykreslovala → obdélník.
-- Mřížky s pevným minimem (300 / 280 px) přetékaly na 320 px → `minmax(min(…,100%),1fr)`.
-- Hlavička na XXS–XS: logo 36 px, Hledat jen jako ikona, otevírací doba skrytá, Kontakty jako ikona v horní liště, akční ikony 40 px pod 420 px.
+CheckoutSteps, OptionList, CartBar, FormCard (košík), Notice, Toast, PromoBanner (kampaň, kalkulačka, pomoc), DataTable (Kde řežeme, parametry), Faq, Newsletter. Z dřívějšího seznamu „Chybí“ jsou hotové: košík ve 3 krocích, výběr dopravy a platby, vyhledávání, přihlášení (modal), stavy formulářů (chyba u pole), toast.
 
-## Chybí — připravit
+## Mapování tříd prototypu
+
+| Stránky | Systém |
+| --- | --- |
+| `pcard` | `dsk-pcard` |
+| `stk`, `stk-my`, `stk-my--no`, `stk-all` | `dsk-stk`, `__my`, `__my--no`, `__all` |
+| `carbtn`, `car-all`, `car-nav-m` | `dsk-carbtn`, `dsk-btn--ghost`, `dsk-carnav` |
+| `fq-hic`, `ko-bi`, `nz-ic`, `lg-ic` | `dsk-hic` |
+| `ko-steps`, `ko-s`, `ko-sn` | `dsk-steps`, `dsk-step`, `dsk-step__n` |
+| `ko-o`, `ko-op`, `ko-tip` | `dsk-opt`, `dsk-opt__p`, `dsk-opt__tip` |
+| `ko-bar`, `ko-back`, `ko-next` | `dsk-cartbar`, `dsk-btn--on-dark-outline`, `dsk-btn--conversion` + `dsk-btn__two` |
+| `ko-note` | `dsk-notice` |
+| `kf-card`, `kf-hd`, `kf-in`, `kf-l`, `kf-login` | `dsk-fcard`, `dsk-fcard__hd`, `dsk-input`, `dsk-label`, `dsk-btn--soft` |
+| `cb`, `kc`, `nz-help` | `dsk-promo`, `dsk-calc`, `dsk-help` (`--nzu`) |
+| `ro-tab`, `ro-yi`, `pd-par` | `dsk-table`, `dsk-yes`, `dsk-params` |
+| `fq`, `nl`, `usp` | `dsk-faq`, `dsk-nl`, `dsk-usp` |
+| `ct` | `dsk-toast` |
+| `hc`, `sv` | `dsk-hcard` |
+
+## Ke sjednocení na stránkách
+
+| Co | Kde | Návrh |
+| --- | --- | --- |
+| Tlačítka s rádiusem 4 px | Filtrovat, Další, Načíst dalších 24, šipky karuselu (`carbtn`), Přihlásit v newsletteru, Odeslat poptávku | přejít na 6 px |
+| Podklad upozornění `#FFF6E8` | košík (`ko-note`) | token `main-100` (#FFF4E5) |
+| Popisky Porovnat / Přihlásit bíle na `primary-500` | hlavička | 13 px tučně má jen 3,0:1 — zvážit `primary-900` nebo tmavé dlaždice |
+| Telefon 26 px v řezu 800 | NZU (`nz-tel`) | 700 podle typografie |
+| Šedé pruhy tabulky `#FAFBFC` | Řezání oceli | nový token `secondary-25` |
+
+## Stále chybí
 
 | Co | Proč | Priorita |
 | --- | --- | --- |
-| ProductCard layout B (1000–1149 px) a A (≥1150 px, tabulka) | požadavek Master Design Systemu | vysoká |
-| Košík a objednávka — 3 kroky (košík, kontaktní údaje, kontrola) + ukazatel kroků | hlavní konverzní cesta | vysoká |
-| Výběr dopravy a platby (radio karty s cenou) | krok 1 košíku | vysoká |
+| ProductCard layout B (1000–1149 px) a A (≥ 1150 px, tabulka) | požadavek Master Design Systemu | střední |
 | Prázdný košík | stav existuje na webu | střední |
-| Stránka vyhledávání (Nalezené stránky + produkty) | /hledat/ | střední |
-| Přihlášení / registrace (rozbalovací mini formulář v hlavičce) | hlavička | střední |
-| Rychlý náhled produktu (lupa na kartě) | ikona už je v kartě | střední |
-| Stavy formulářů: chyba, úspěch, povinné pole | newsletter, objednávka | střední |
-| Toast „Přidáno do porovnání / oblíbených“ | akce v detailu | nízká |
-| Skeleton načítání karet a výpisu | Načíst dalších 24 | nízká |
-| Termalica a Auto-moto | čeká na rozhodnutí o stromu kategorií | — |
+| Rychlý náhled produktu | ikona v kartě | nízká |
+| Skeleton načítání karet | Načíst dalších 24 | nízká |
+| Barevné logo a SVG | podklady od klienta | — |
